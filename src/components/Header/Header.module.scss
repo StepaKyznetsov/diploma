@@ -1,0 +1,17 @@
+.container {
+  padding: 2rem;
+  .inner {
+    width: fit-content;
+    margin-left: auto;
+    display: flex;
+    gap: 1.2rem;
+    span {
+      cursor: pointer;
+      font-size: 20px;
+      transition: color 0.3s;
+      &:hover {
+        color: #b5ccfd;
+      }
+    }
+  }
+}
