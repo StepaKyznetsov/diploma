@@ -3,15 +3,9 @@ import css from "./Menu.module.scss";
 import Button from "../../ui/Button/Button";
 import SettingsContainer from "../../ui/SettingsContainer/SettingsContainer";
 
-interface IMenu {
-    visible?: boolean
-}
-
-const Menu: React.FC<IMenu> = ({visible}) => {
+const Menu: React.FC = () => {
   return (
-    <>
-    
-        <SettingsContainer>
+    <SettingsContainer>
       <div className={css.inner}>
         <div className={css.title}>
           <h2>Название игры</h2>
@@ -20,7 +14,6 @@ const Menu: React.FC<IMenu> = ({visible}) => {
         <Button text="Авторы" />
       </div>
     </SettingsContainer>
-    </>
   );
 };
 

@@ -6,18 +6,16 @@ import Button from "../../ui/Button/Button";
 
 const GameSettings: React.FC = () => {
   return (
-    <>
-      <SettingsContainer>
-        <BackArrow />
-        <div className={`${css.inner} ${css.visible}`}>
-          <div className={css.title}>
-            <h2>Настройки режима</h2>
-          </div>
-          <Button text="Говно" />
-          <Button text="Блиц" />
+    <SettingsContainer>
+      <BackArrow />
+      <div className={`${css.inner} ${css.visible}`}>
+        <div className={css.title}>
+          <h2>Настройки режима</h2>
         </div>
-      </SettingsContainer>
-    </>
+        <Button text="Классический" />
+        <Button text="Блиц" />
+      </div>
+    </SettingsContainer>
   );
 };
 
