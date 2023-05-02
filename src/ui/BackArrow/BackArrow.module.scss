@@ -1,6 +1,5 @@
 .container {
   cursor: pointer;
-  opacity: 0.72;
   font-size: 15px;
   line-height: 20px;
   font-weight: 500;
@@ -10,9 +9,11 @@
   gap: .3rem;
   transition: all 0.3s;
   position: absolute;
-  left: 2rem;
+  top: 0;
+  left: 0;
+  padding: 2rem;
   &:hover {
-    opacity: 1;
+    color: #b5ccfd;
     .icon {
       transform: scale(1.2);
     }

@@ -1,11 +1,11 @@
 import React from "react";
 import css from "./BackArrow.module.scss";
-import { MdOutlineArrowBackIosNew } from "react-icons/md";
+import {IoArrowBackOutline} from 'react-icons/io5'
 
 const BackArrow: React.FC = () => {
   return (
     <div className={css.container} onClick={() => console.log(1)}>
-      <MdOutlineArrowBackIosNew className={css.icon} />
+      <IoArrowBackOutline className={css.icon} />
       <span>Назад</span>
     </div>
   );

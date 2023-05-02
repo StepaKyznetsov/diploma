@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: visible 1.5s ease-out;
+  animation: visible 1s ease-in-out;
 }
 
 @keyframes visible {
