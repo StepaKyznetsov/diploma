@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import css from "./SplashScreen.module.scss";
 import classNames from "classnames";
-import {Blocks} from 'react-loader-spinner';
+import { MagnifyingGlass } from "react-loader-spinner";
 
 const SplashScreen: React.FC = () => {
   const [showSplashScreen, setShowSplashScreen] = useState<boolean>(true);
@@ -23,12 +23,13 @@ const SplashScreen: React.FC = () => {
       <div className={classNames({ [css.hide]: hideAnimation }, css.container)}>
         <div className={css.inner}>
           <h2>Добро пожаловать!</h2>
-          <Blocks
+          <MagnifyingGlass
             visible={true}
             height="100"
             width="100"
-            ariaLabel="blocks-loading"
             wrapperStyle={{}}
+            glassColor="white"
+            color="black"
           />
         </div>
       </div>
