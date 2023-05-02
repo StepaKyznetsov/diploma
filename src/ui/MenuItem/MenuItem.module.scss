@@ -1,12 +1,12 @@
 .container {
   overflow: hidden;
   width: 100%;
-  height: 100px;
+  height: 80px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .2rem;
+  gap: 0.2rem;
   font-size: 25px;
   position: relative;
   background-color: white;
@@ -26,7 +26,7 @@
     height: 100%;
     background-color: black;
     color: white;
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     opacity: 0;
     display: flex;
     align-items: center;
@@ -37,4 +37,8 @@
       margin: auto;
     }
   }
+}
+
+.choosen {
+  background-color: rgb(111, 248, 111);
 }

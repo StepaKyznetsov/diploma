@@ -14,6 +14,8 @@ const MenuList: React.FC<IMenuList> = ({ items }) => {
         <MenuItem
           key={index}
           description={e.description}
+          isChoosen={e.isChoosen}
+          onClickHandler={e.onClickHandler}
           icon={e.icon}
           text={e.text}
         />

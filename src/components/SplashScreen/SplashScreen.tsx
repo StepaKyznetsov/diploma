@@ -3,7 +3,11 @@ import css from "./SplashScreen.module.scss";
 import classNames from "classnames";
 import { MagnifyingGlass } from "react-loader-spinner";
 
-const SplashScreen: React.FC = () => {
+interface ISplashScreen {
+  text: string;
+}
+
+const SplashScreen: React.FC<ISplashScreen> = ({text}) => {
   const [showSplashScreen, setShowSplashScreen] = useState<boolean>(true);
   const [hideAnimation, setHideAnimation] = useState<boolean>(false);
 
@@ -22,7 +26,7 @@ const SplashScreen: React.FC = () => {
     return (
       <div className={classNames({ [css.hide]: hideAnimation }, css.container)}>
         <div className={css.inner}>
-          <h2>Добро пожаловать!</h2>
+          <h2>{text}</h2>
           <MagnifyingGlass
             visible={true}
             height="100"

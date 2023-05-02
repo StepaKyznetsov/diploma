@@ -9,13 +9,20 @@ import {
 } from "react-icons/bs";
 import { GiTeacher } from "react-icons/gi";
 import { FaTasks } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Menu: React.FC = () => {
+
+  const navigate = useNavigate();
+  const goTo = () => {
+    navigate('/gamemode')
+  }
+
   return (
     <SettingsContainer>
       <div className={css.inner}>
         <div className={css.title}>
-          <h2>Название игры</h2>
+          <h1>Название игры</h1>
         </div>
         <MenuList
           items={[
@@ -23,6 +30,7 @@ const Menu: React.FC = () => {
               text: "Играть",
               icon: <BsFillPlayFill />,
               description: "Опробуйте свои знания в одном из режимов игры!",
+              onClickHandler: goTo
             },
             {
               text: "Учителю",
