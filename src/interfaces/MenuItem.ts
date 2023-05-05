@@ -1,7 +1,10 @@
+type TMenuItem = "navigation" | "answer";
+
 export interface IMenuItem {
   text: string;
   onClickHandler?(): void;
   icon?: React.ReactNode;
   description?: string;
-  isChoosen?: boolean;
-};
+  type?: TMenuItem;
+  href?: string;
+}

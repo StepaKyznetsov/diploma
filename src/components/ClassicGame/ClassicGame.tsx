@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import css from "./ClassicGame.module.scss";
-import MenuItem from "../../ui/MenuItem/MenuItem";
 import MenuList from "../../ui/MenuList/MenuList";
 
 const ClassicGame: React.FC = () => {
@@ -23,11 +22,11 @@ const ClassicGame: React.FC = () => {
               items={[
                 {
                   text: "18",
-                  isChoosen: choose,
-                  onClickHandler: chi,
+                  type: 'answer'
                 },
                 {
                   text: "20",
+                  type: 'answer'
                 },
               ]}
             />
@@ -35,9 +34,11 @@ const ClassicGame: React.FC = () => {
               items={[
                 {
                   text: "22",
+                  type: 'answer'
                 },
                 {
                   text: "24",
+                  type: 'answer'
                 },
               ]}
             />

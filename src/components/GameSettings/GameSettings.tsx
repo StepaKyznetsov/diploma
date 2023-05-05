@@ -33,16 +33,18 @@ const GameSettings: React.FC = () => {
             {
               text: "Классический режим",
               icon: <BiGame />,
-              isChoosen: gameMode,
               onClickHandler: setMode,
+              type: 'answer'
             },
             {
               text: "Блиц",
               icon: <BiTimer />,
+              type: 'answer'
             },
             {
               text: "Бесконечный режим",
               icon: <BiInfinite />,
+              type: 'answer'
             },
           ]}
         />
@@ -51,14 +53,16 @@ const GameSettings: React.FC = () => {
             items={[
               {
                 text: "10 вопросов",
+                type: 'answer'
               },
               {
                 text: "20 вопросов",
-                isChoosen: questionsAmount,
                 onClickHandler: setAmount,
+                type: 'answer'
               },
               {
                 text: "30 вопросов",
+                type: 'answer'
               },
             ]}
           />

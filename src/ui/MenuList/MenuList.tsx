@@ -5,19 +5,21 @@ import MenuItem from "../MenuItem/MenuItem";
 
 interface IMenuList {
   items: IMenuItem[];
+  multipleAnswers?: boolean;
 }
 
-const MenuList: React.FC<IMenuList> = ({ items }) => {
+const MenuList: React.FC<IMenuList> = ({ items, multipleAnswers = false }) => {
   return (
     <div className={css.container}>
       {items.map((e, index) => (
         <MenuItem
           key={index}
           description={e.description}
-          isChoosen={e.isChoosen}
           onClickHandler={e.onClickHandler}
           icon={e.icon}
           text={e.text}
+          type={e.type}
+          href={e.href}
         />
       ))}
     </div>

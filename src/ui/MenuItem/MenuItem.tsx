@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./MenuItem.module.scss";
 import { IMenuItem } from "../../interfaces/MenuItem";
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
 
 const MenuItem: React.FC<IMenuItem> = ({
   text,
-  onClickHandler,
   icon,
   description,
-  isChoosen = false
+  type = "navigation",
+  href,
 }) => {
+  const navigate = useNavigate();
+  const [choosen, setChoosen] = useState<boolean>(false);
+
+  const navigateTo = (href: string | undefined) => {
+    href && navigate(href);
+  };
+
   return (
-    <div onClick={onClickHandler} className={classNames({[css.choosen]: isChoosen}, css.container)}>
+    <div
+      onClick={() => {
+        if (type === "navigation") navigateTo(href);
+        else setChoosen(!choosen)
+      }}
+      className={classNames({ [css.choosen]: choosen }, css.container)}
+    >
       <span>{text}</span>
       {icon && icon}
       {description && (
