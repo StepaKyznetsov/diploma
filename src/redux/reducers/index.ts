@@ -1,8 +1,14 @@
 import { combineReducers } from "redux";
-import { userAnswerReducer } from "./answerReducer";
+import { answerReducer } from "./answerReducer";
+import { questionsReducer } from "./questionsReducer";
+import { settingsReducer } from "./settingsReducer";
+import { statisticsReducer } from "./statisticsReducer";
 
 export const rootReducer = combineReducers({
-    userAnswerReducer
+  answer: answerReducer,
+  questions: questionsReducer,
+  settings: settingsReducer,
+  statistics: statisticsReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

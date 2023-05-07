@@ -1,5 +1,13 @@
-import * as TasksActionCreators from './tasks'
+import * as AnswerActionCreators from "./answer";
+import * as QuestionsActionCreators from "./questions";
+import * as SettingsActionCreators from "./settings";
+import * as StatisticsActionCreators from "./statistics";
 
-export default {
-    ...TasksActionCreators
-}
+const actionCreators = {
+  ...AnswerActionCreators,
+  ...QuestionsActionCreators,
+  ...SettingsActionCreators,
+  ...StatisticsActionCreators
+};
+
+export default actionCreators;

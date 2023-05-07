@@ -2,13 +2,13 @@ import {
   AnswerState,
   AnswerActionTypes,
   AnswerAction,
-} from "../types/userAnswer.d";
+} from "../types/answer.d";
 
 const initialState: AnswerState = {
   answer: [],
 };
 
-export const userAnswerReducer = (
+export const answerReducer = (
   state = initialState,
   action: AnswerAction
 ): AnswerState => {

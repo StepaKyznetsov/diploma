@@ -16,4 +16,4 @@ interface ResetAnswer {
   type: AnswerActionTypes.RESET_ANSWER;
 }
 
-export type AnswerAction =  AddAnswer | ResetAnswer;
+export type AnswerAction = AddAnswer | ResetAnswer;
