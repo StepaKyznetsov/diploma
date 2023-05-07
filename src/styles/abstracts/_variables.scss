@@ -1,0 +1,59 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// fonts
+$font-serif: Arial, 'Helvetica Neue Light', sans-serif !default;
+$font-sans: 'Inter', 'Times New Roman', Times, serif !default;
+$font-weight-normal: 400;
+$font-weight-semibold: 500;
+$font-weight-bold: 700;
+
+// Colors
+$primary-color-1: #100e19;
+$primary-color-2: #1f1b2e;
+$primary-color-2-hover: rgb(46, 40, 68);
+$primary-color-2-active: #000;
+
+$accent-color-1: #ea003d;
+$accent-color-1-hover: #ff0f4d;
+$accent-color-1-active: #c10032;
+
+$lighter-color-1: #312b45;
+$lighter-color-1-hover: #403958;
+$lighter-color-1-active: #1e1a2b;
+
+$text-color-1: rgba(255, 255, 255, 0.48);
+// Explicitly set colors
+$primary-black: #1b1a17;
+$primary-lightgray: rgba(255, 255, 255, 0.56);
+$primary-gray: #555248;
+$primary-red: #d4b098;
+$primary-white: #eae3d4;
+$primary-green: #e6f4f1;
+$accent-green: #66c05d;
+$accent-purple: rgb(49, 43, 69);
+$accent-lightpurple: #7e798f;
+$input-white: #d9d7e0;
+
+// Borders
+$border-primary: 1px solid hsla(0, 0%, 100%, 0.16);
+
+//breakpoints
+$break-xs: 320px;
+$break-sm: 600px;
+$break-ps: 420px;
+$break-tb-s: 880px;
+$break-md: 1160px;
+$break-lg: 1280px;
+$break-xl: 1600px;
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1304px !default;
+
+//variables for button component
+$button-green: #66c05d;
+$button-gray: #555248;
+$button-red: #d4b098;
+$button-white: #ffffff;
