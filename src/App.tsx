@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Main from "./pages/Main/Main";
-import GameMode from "./pages/GameMode/GameMode";
+import GameMode from "./pages/GameSettings/GameMode";
 import PlayGame from "./pages/PlayGame/PlayGame";
 
 const App: React.FC = () => {

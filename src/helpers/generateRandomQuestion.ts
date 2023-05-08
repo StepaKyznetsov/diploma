@@ -1,6 +1,6 @@
 import { Question, QuestionType } from "../redux/types/questions";
 
-export function generateQuestion(type: QuestionType): Question {
+export function generateRandomQuestion(type: QuestionType): Question {
   let questionText: string = "";
   let answer: string = "";
 
@@ -11,6 +11,8 @@ export function generateQuestion(type: QuestionType): Question {
       questionText = `${num1} + ${num2} = ?`;
       answer = (num1 + num2).toString();
       break;
+    //case "multiple":
+    //  break;
     case "input":
       const num6 = Math.floor(Math.random() * 10) + 1;
       const num7 = Math.floor(Math.random() * 10) + 1;
@@ -19,5 +21,5 @@ export function generateQuestion(type: QuestionType): Question {
       break;
   }
 
-  return { text: questionText, answer, type };
+  return { text: questionText, answer, answerOptions: [],  type };
 }

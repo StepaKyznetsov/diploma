@@ -1,6 +1,6 @@
-type GameMode = "classic" | "blitz" | "infinity";
-type QuestionsAmount = 10 | 20 | 30 | null;
-type Time = 60 | 120 | 180 | null;
+export type GameMode = "classic" | "blitz" | "infinity";
+export type QuestionsAmount = 10 | 20 | 30 | null;
+export type Time = 60 | 120 | 180 | null;
 
 export interface SettingsState {
   gameMode: GameMode;

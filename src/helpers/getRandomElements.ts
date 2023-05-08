@@ -1,10 +1,9 @@
-export function getRandomElements<T>(array: T[], count: number): T[] {
-  if (count > array.length)
-    throw new Error("Count should be less or equal to array length");
+export function getRandomElements<T>(array: T[], count: number | null): T[] {
+  if (!count) return array;
 
   const result: T[] = [];
   const indices = new Set<number>();
-
+  
   while (result.length < count) {
     const index = Math.floor(Math.random() * array.length);
 

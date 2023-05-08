@@ -3,6 +3,7 @@ export type QuestionType = "single" | "multiple" | "input" | "voice";
 export interface Question {
   text: string;
   answer: string;
+  answerOptions: string[] | string | null;
   type: QuestionType;
 }
 

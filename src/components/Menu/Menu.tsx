@@ -23,7 +23,6 @@ const Menu: React.FC = () => {
               text: "Играть",
               icon: <BsFillPlayFill />,
               description: "Опробуйте свои знания в одном из режимов игры!",
-              type: "navigation",
               href: "/gamemode",
             },
             {
@@ -31,7 +30,6 @@ const Menu: React.FC = () => {
               icon: <GiTeacher />,
               description:
                 "Создайте свои собственные задания для вашего класса",
-              type: "navigation",
               href: "/teacher",
             },
           ]}
@@ -42,21 +40,18 @@ const Menu: React.FC = () => {
               text: "Таблица",
               icon: <BsClipboard2Fill />,
               description: "Таблица результатов выполненных работ",
-              type: "navigation",
-              href: "/table",
+              href: "/navigation",
             },
             {
               text: "Банк заданий",
               icon: <FaTasks />,
               description: "Общий банк со всеми заданиями",
-              type: "navigation",
-              href: "/alltasks",
+              href: "/tasks",
             },
             {
               text: "Авторы",
               icon: <BsFillPeopleFill />,
               description: "Пара слов об авторах приложения",
-              type: "navigation",
               href: "/authors",
             },
           ]}
