@@ -1,7 +1,8 @@
 import React from "react";
 import css from "./SingleAnswer.module.scss";
+import { Question } from "@/redux/types/questions.d";
 
-const ClassicGame: React.FC = () => {
+const SingleAnswer: React.FC<Question> = ({ text, answer, answerOptions }) => {
   return (
     <div className={css.container}>
       <div className={css.nextQ}>Далее</div>
@@ -26,4 +27,4 @@ const ClassicGame: React.FC = () => {
   );
 };
 
-export default ClassicGame;
+export default SingleAnswer;

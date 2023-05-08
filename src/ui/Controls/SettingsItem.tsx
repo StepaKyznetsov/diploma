@@ -1,14 +1,13 @@
 import React from "react";
 import css from "./Controls.module.scss";
-import { ISettingsItem } from "../../interfaces/Controls";
+import { ISettingsItem } from "@/interfaces/Controls";
 import classNames from "classnames";
-import { useActions } from "../../hooks/useActions";
-import { GameMode, QuestionsAmount, Time } from "../../redux/types/settings";
+import { useActions } from "@/hooks";
+import { GameMode, QuestionsAmount, Time } from '@/redux/types/settings.d'
 
 const SettingsItem: React.FC<
   ISettingsItem<GameMode | QuestionsAmount | Time>
 > = ({ selector, setting, icon, text }) => {
-  
   const { setCurrentGameMode, setCurrentQuestionsAmount, setCurrentTime } = useActions();
   const isGameMode = setting === "classic" || setting === "blitz" || setting === "infinity";
   const isQuestionsAmount = setting === 10 || setting === 20 || setting === 30;

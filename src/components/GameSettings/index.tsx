@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import css from "./GameSettings.module.scss";
-import BackArrow from "../../ui/BackArrow/BackArrow";
-import SettingsContainer from "../../ui/SettingsContainer/SettingsContainer";
+import BackArrow from "@/ui/BackArrow";
+import SettingsContainer from "@/ui/SettingsContainer";
 import { BiGame, BiTimer, BiInfinite } from "react-icons/bi";
-import MenuItem from "../../ui/Controls/MenuItem";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
-import SettingsItem from "../../ui/Controls/SettingsItem";
-import { useActions } from "../../hooks/useActions";
+import MenuItem from "@/ui/Controls/MenuItem";
+import { useTypedSelector, useActions } from "@/hooks";
+import SettingsItem from "@/ui/Controls/SettingsItem";
 import axios from "axios";
 
 const GameSettings: React.FC = () => {
@@ -17,7 +16,7 @@ const GameSettings: React.FC = () => {
 
   const getQuestions = async () => {
     const response = await axios.get("/mocks/questions.json");
-    setCurrentQuestions(response.data, questionsAmount)
+    setCurrentQuestions(response.data, questionsAmount);
   };
 
   useEffect(() => {
@@ -70,17 +69,14 @@ const GameSettings: React.FC = () => {
             />
           </div>
         )}
-        {gameMode !== "classic" && gameMode !== "infinity" && (
+        {gameMode === "blitz" && (
           <div className={css.settingsBlock}>
             <SettingsItem text="1 минута" selector={time} setting={60} />
             <SettingsItem text="2 минуты" selector={time} setting={120} />
             <SettingsItem text="3 минуты" selector={time} setting={180} />
           </div>
         )}
-        <div
-          className={css.playButton}
-          onClick={() => getQuestions()}
-        >
+        <div className={css.playButton} onClick={() => getQuestions()}>
           <MenuItem text="Играть" href="/gamemode" />
         </div>
       </div>

@@ -1,12 +1,12 @@
 import React from "react";
 import css from "./GameContainer.module.scss";
 
-interface IGameContainer {
+interface ITaskContainer {
   children: React.ReactNode;
 }
 
-const GameContainer: React.FC<IGameContainer> = ({ children }) => {
+const TaskContainer: React.FC<ITaskContainer> = ({ children }) => {
   return <div className={css.container}>{children}</div>;
 };
 
-export default GameContainer;
+export default TaskContainer;

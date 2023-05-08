@@ -1,7 +1,7 @@
 import React from "react";
 import css from "./Menu.module.scss";
-import SettingsContainer from "../../ui/SettingsContainer/SettingsContainer";
-import MenuList from "../../ui/MenuList/MenuList";
+import SettingsContainer from "@/ui/SettingsContainer";
+import MenuList from "@/ui/MenuList";
 import {
   BsFillPlayFill,
   BsClipboard2Fill,

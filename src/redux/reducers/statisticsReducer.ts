@@ -6,6 +6,11 @@ import {
 
 const initialState: StatisticsState = {
   persons: [],
+  groups: [],
+  current: {
+    correctlyAnswers: 0,
+    wrongAnswers: 0,
+  },
 };
 
 export const statisticsReducer = (
@@ -16,7 +21,17 @@ export const statisticsReducer = (
     case StatisticsActionTypes.ADD_PERSON:
       return {
         ...state,
-        persons: [...state.persons, action.payload],
+      //  persons: [...state.persons, action.payload],
+      };
+
+    
+    case StatisticsActionTypes.RESET_CURRENT_STATISTICS:
+      return {
+        ...state,
+        current: {
+          correctlyAnswers: 0,
+          wrongAnswers: 0,
+        },
       };
     default:
       return state;

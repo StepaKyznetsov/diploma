@@ -1,4 +1,4 @@
-export type QuestionType = "single" | "multiple" | "input" | "voice";
+export type QuestionType = "single" | "multiple" | "input";
 
 export interface Question {
   text: string;

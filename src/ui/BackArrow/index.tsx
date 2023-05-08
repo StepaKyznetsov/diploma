@@ -8,7 +8,7 @@ const BackArrow: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={css.container} onClick={() => navigate('/')}>
+    <div className={css.container} onClick={() => navigate(-1)}>
       <IoArrowBackOutline className={css.icon} />
       <span>Назад</span>
     </div>
