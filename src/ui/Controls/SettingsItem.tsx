@@ -1,9 +1,9 @@
 import React from "react";
 import css from "./Controls.module.scss";
-import { ISettingsItem } from "@/interfaces/Controls";
+import { ISettingsItem } from "../../interfaces/Controls";
 import classNames from "classnames";
-import { useActions } from "@/hooks";
-import { GameMode, QuestionsAmount, Time } from '@/redux/types/settings.d'
+import { useActions } from "../../hooks";
+import { GameMode, QuestionsAmount, Time } from '../../redux/types/settings.d'
 
 const SettingsItem: React.FC<
   ISettingsItem<GameMode | QuestionsAmount | Time>

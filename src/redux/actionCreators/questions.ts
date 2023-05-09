@@ -1,4 +1,4 @@
-import { getRandomElements } from "@/helpers";
+import { getRandomElements } from "../../helpers";
 import {
   Question,
   QuestionsAction,

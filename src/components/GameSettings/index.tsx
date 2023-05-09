@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import css from "./GameSettings.module.scss";
-import BackArrow from "@/ui/BackArrow";
-import SettingsContainer from "@/ui/SettingsContainer";
-import { BiGame, BiTimer, BiInfinite } from "react-icons/bi";
-import MenuItem from "@/ui/Controls/MenuItem";
-import { useTypedSelector, useActions } from "@/hooks";
-import SettingsItem from "@/ui/Controls/SettingsItem";
 import axios from "axios";
+import { BiGame, BiTimer, BiInfinite } from "react-icons/bi";
+import BackArrow from "../../ui/BackArrow";
+import SettingsContainer from "../../ui/SettingsContainer";
+import MenuItem from "../../ui/Controls/MenuItem";
+import SettingsItem from "../../ui/Controls/SettingsItem";
+import { useTypedSelector, useActions } from "../../hooks";
+import { PLAY } from "../../constants";
 
 const GameSettings: React.FC = () => {
   const { resetSettings, setCurrentQuestions } = useActions();
@@ -19,6 +20,12 @@ const GameSettings: React.FC = () => {
     setCurrentQuestions(response.data, questionsAmount);
   };
 
+  const modeGuards = (): boolean => {
+    if (gameMode !== "infinity" && !questionsAmount) return false;
+    if (gameMode === "blitz" && !time) return false;
+    return true;
+  };
+
   useEffect(() => {
     resetSettings();
   }, []);
@@ -28,7 +35,7 @@ const GameSettings: React.FC = () => {
       <BackArrow />
       <div className={`${css.inner} ${css.visible}`}>
         <div className={css.title}>
-          <h2>Настройки режима</h2>
+          <h2>Настройки режима игры</h2>
         </div>
         <div className={css.settingsBlock}>
           <SettingsItem
@@ -77,7 +84,7 @@ const GameSettings: React.FC = () => {
           </div>
         )}
         <div className={css.playButton} onClick={() => getQuestions()}>
-          <MenuItem text="Играть" href="/gamemode" />
+          {modeGuards() && <MenuItem text="Играть" href={PLAY} />}
         </div>
       </div>
     </SettingsContainer>

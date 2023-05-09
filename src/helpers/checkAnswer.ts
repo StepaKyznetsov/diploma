@@ -1,4 +1,4 @@
-import { Question } from "../redux/types/questions";
+import { Question } from "../redux/types/questions.d";
 
 export const checkAnswer = (
   questions: Question[],

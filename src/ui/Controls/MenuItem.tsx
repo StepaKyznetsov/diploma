@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./Controls.module.scss";
-import { IMenuItem } from "@/interfaces/Controls";
+import { IMenuItem } from "../../interfaces/Controls";
 import { useNavigate } from "react-router-dom";
 
 const MenuItem: React.FC<IMenuItem> = ({

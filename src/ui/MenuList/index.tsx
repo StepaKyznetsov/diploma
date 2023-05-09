@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./MenuList.module.scss";
-import { IMenuItem } from "@/interfaces/Controls";
+import { IMenuItem } from "../../interfaces/Controls";
 import MenuItem from "../Controls/MenuItem";
 
 interface IMenuList {

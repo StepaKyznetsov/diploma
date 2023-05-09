@@ -1,7 +1,7 @@
 import React from "react";
 import css from "./Menu.module.scss";
-import SettingsContainer from "@/ui/SettingsContainer";
-import MenuList from "@/ui/MenuList";
+import SettingsContainer from "../../ui/SettingsContainer";
+import MenuList from "../../ui/MenuList";
 import {
   BsFillPlayFill,
   BsClipboard2Fill,
@@ -40,13 +40,13 @@ const Menu: React.FC = () => {
               text: "Таблица",
               icon: <BsClipboard2Fill />,
               description: "Таблица результатов выполненных работ",
-              href: "/navigation",
+              href: "/table",
             },
             {
               text: "Банк заданий",
               icon: <FaTasks />,
               description: "Общий банк со всеми заданиями",
-              href: "/tasks",
+              href: "/alltasks",
             },
             {
               text: "Авторы",

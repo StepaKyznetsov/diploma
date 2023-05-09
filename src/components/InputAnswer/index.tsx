@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import css from "./InputAnswer.module.scss";
-import Input from "@/ui/Input";
-import { Question } from "@/redux/types/questions.d";
+import Input from "../../ui/Input";
+import { Question } from "../../redux/types/questions.d";
 
 const InputAnswer: React.FC<Question> = ({ text, answer, answerOptions }) => {
   const [inputValue, setInputValue] = useState<string>("");
@@ -14,6 +14,7 @@ const InputAnswer: React.FC<Question> = ({ text, answer, answerOptions }) => {
   return (
     <div className={css.container}>
       <Input value={inputValue} onChange={handleInput} />
+      {text}
     </div>
   );
 };
