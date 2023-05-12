@@ -15,7 +15,7 @@ const Menu: React.FC = () => {
     <SettingsContainer>
       <div className={css.inner}>
         <div className={css.title}>
-          <h1>Математические баталии</h1>
+          <h1>Название игры</h1>
         </div>
         <MenuList
           items={[

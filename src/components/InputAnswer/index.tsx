@@ -8,7 +8,7 @@ const InputAnswer: React.FC<Question> = ({ text, answer, answerOptions }) => {
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setInputValue(inputValue);
+    setInputValue(e.target.value);
   };
 
   return (

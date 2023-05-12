@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import css from "./GameSettings.module.scss";
 import axios from "axios";
-import { BiGame, BiTimer, BiInfinite } from "react-icons/bi";
+import { BiBookOpen, BiTimer, BiInfinite } from "react-icons/bi";
 import BackArrow from "../../ui/BackArrow";
 import SettingsContainer from "../../ui/SettingsContainer";
 import MenuItem from "../../ui/Controls/MenuItem";
@@ -21,8 +21,7 @@ const GameSettings: React.FC = () => {
   };
 
   const modeGuards = (): boolean => {
-    if (gameMode !== "infinity" && !questionsAmount) return false;
-    if (gameMode === "blitz" && !time) return false;
+    if (gameMode === "blitz" && (!time || !questionsAmount)) return false;
     return true;
   };
 
@@ -39,8 +38,8 @@ const GameSettings: React.FC = () => {
         </div>
         <div className={css.settingsBlock}>
           <SettingsItem
-            text="Классический режим"
-            icon={<BiGame />}
+            text="Приключение"
+            icon={<BiBookOpen />}
             selector={gameMode}
             setting="classic"
           />
@@ -57,7 +56,7 @@ const GameSettings: React.FC = () => {
             setting="infinity"
           />
         </div>
-        {gameMode !== "infinity" && (
+        {gameMode === "blitz" && (
           <div className={css.settingsBlock}>
             <SettingsItem
               text="10 вопросов"
