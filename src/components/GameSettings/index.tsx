@@ -21,12 +21,13 @@ const GameSettings: React.FC = () => {
   };
 
   const modeGuards = (): boolean => {
-    if (gameMode === "blitz" && (!time || !questionsAmount)) return false;
+    if (gameMode === "blitz" && !time) return false;
     return true;
   };
 
   useEffect(() => {
     resetSettings();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -56,25 +57,9 @@ const GameSettings: React.FC = () => {
             setting="infinity"
           />
         </div>
-        {gameMode === "blitz" && (
-          <div className={css.settingsBlock}>
-            <SettingsItem
-              text="10 вопросов"
-              selector={questionsAmount}
-              setting={10}
-            />
-            <SettingsItem
-              text="20 вопросов"
-              selector={questionsAmount}
-              setting={20}
-            />
-            <SettingsItem
-              text="30 вопросов"
-              selector={questionsAmount}
-              setting={30}
-            />
-          </div>
-        )}
+
+        {/* Выбор количества заданий */}
+
         {gameMode === "blitz" && (
           <div className={css.settingsBlock}>
             <SettingsItem text="1 минута" selector={time} setting={60} />
@@ -85,6 +70,12 @@ const GameSettings: React.FC = () => {
         <div className={css.playButton} onClick={() => getQuestions()}>
           {modeGuards() && <MenuItem text="Играть" href={PLAY} />}
         </div>
+      </div>
+      <div className={css.characterRight}>
+        <img src="/images/character2.png" alt="character" />
+      </div>
+      <div className={css.characterLeft}>
+        <img src="/images/character4.png" alt="character" />
       </div>
     </SettingsContainer>
   );

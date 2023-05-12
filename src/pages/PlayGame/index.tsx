@@ -1,34 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import TaskContainer from "../../components/TaskContainer";
-import SingleAnswer from "../../components/SingleAnswer";
-import MultipleAnswer from "../../components/MultipleAnswer";
-import InputAnswer from "../../components/InputAnswer";
 import { useTypedSelector } from "../../hooks";
 import InGameInteractive from "../../ui/InGameInteractive";
 import Timer from "../../components/Timer";
 import BackArrow from "../../ui/BackArrow";
+import SplashScreen from "../../components/SplashScreen";
+import { useTasks } from "../../hooks";
 
 const PlayGame: React.FC = () => {
-  const { questions } = useTypedSelector((state) => state.questions);
   const { gameMode, time } = useTypedSelector((state) => state.settings);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
-
-  const differentAnswersTypes = {
-    single: SingleAnswer,
-    multiple: MultipleAnswer,
-    input: InputAnswer,
-  };
-
-  const currentQuestion = questions[currentQuestionIndex];
-  const Component = differentAnswersTypes[currentQuestion.type];
+  const {
+    currentQuestionIndex,
+    setCurrentQuestionIndex,
+    currentQuestion,
+    Component,
+  } = useTasks();
 
   useEffect(() => {
-    return(() => setCurrentQuestionIndex(0))
-  }, [])
+    return () => setCurrentQuestionIndex(0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <main>
       <BackArrow />
+      <SplashScreen text="Поиграем!" />
       <TaskContainer>
         <InGameInteractive
           text="Задание №"
@@ -44,7 +40,7 @@ const PlayGame: React.FC = () => {
         <InGameInteractive
           text="Далее"
           type="nextQ"
-          onClickHandler={() => setCurrentQuestionIndex(prev => prev + 1)}
+          onClickHandler={() => setCurrentQuestionIndex((prev) => prev + 1)}
         />
         {gameMode === "blitz" && Number.isInteger(time) && (
           <Timer time={time} onTimerEnd={() => console.log(1)} />

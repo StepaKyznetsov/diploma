@@ -1,5 +1,5 @@
 export function getRandomElements<T>(array: T[], count: number | null): T[] {
-  if (!count) return array;
+  if (!count) return array.sort(() => Math.random() - 0.5);
 
   const result: T[] = [];
   const indices = new Set<number>();

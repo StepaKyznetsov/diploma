@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import css from "./CharacterLine.module.scss";
 import classNames from "classnames";
 import { AiOutlineClose } from "react-icons/ai";
+import { useTypewriter } from "../../hooks/useTypewriter";
 
 interface ICharacterLine {
   imgSrc: string;
@@ -10,6 +11,7 @@ interface ICharacterLine {
 
 const CharacterLine: React.FC<ICharacterLine> = ({ imgSrc, text }) => {
   const [open, setOpen] = useState<boolean>(false);
+  const {displayText} = useTypewriter(text)
 
   useEffect(() => {
     setTimeout(() => {
@@ -28,7 +30,7 @@ const CharacterLine: React.FC<ICharacterLine> = ({ imgSrc, text }) => {
     >
       <div className={css.inner}>
         <img src={imgSrc} alt="hero" />
-        <p>{text}</p>
+        <p>{displayText}</p>
         <AiOutlineClose
           className={css.close}
           onClick={() => {

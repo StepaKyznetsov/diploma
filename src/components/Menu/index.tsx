@@ -57,6 +57,12 @@ const Menu: React.FC = () => {
           ]}
         />
       </div>
+      <div className={css.characterRight}>
+        <img src="/images/character1.png" alt="character" />
+      </div>
+      <div className={css.characterLeft}>
+        <img src="/images/character3.png" alt="character" />
+      </div>
     </SettingsContainer>
   );
 };

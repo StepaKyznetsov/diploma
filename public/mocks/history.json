@@ -1,0 +1,30 @@
+[
+  {
+    "global": "cutscene",
+    "text": "Lorem Ipsum",
+    "imgSrc": "/images/character4.png"
+  },
+  {
+    "global": "task",
+    "answer": "2",
+    "asnwerOptions": ["1", "2", "3", "4"],
+    "type": "single"
+  },
+  {
+    "global": "task",
+    "answer": "2",
+    "asnwerOptions": ["1", "2", "3", "4"],
+    "type": "single"
+  },
+  {
+    "global": "task",
+    "answer": "2",
+    "asnwerOptions": ["1", "2", "3", "4"],
+    "type": "single"
+  },
+  {
+    "metaType": "cutscene",
+    "text": "Lorem Ipsum",
+    "imgSrc": "/images/character3.png"
+  }
+]
