@@ -42,3 +42,10 @@
 .choosen {
   background-color: rgb(111, 248, 111);
 }
+
+.settingHover {
+  transition: background-color .4s ease-in-out;
+  &:hover {
+    background-color: rgb(173, 250, 173);
+  }
+}

@@ -3,6 +3,8 @@ export const MAIN = "/";
 export const GAMEMODE = "/gamemode";
 export const PLAY = "/play";
 export const ALL_TASKS = "/alltasks";
+export const TEACHER_ROOM = "/teacherroom"
+export const LOGIN = "/login"
 //enemies
 export const enemiesImages = [
   "/images/enemy1.png",

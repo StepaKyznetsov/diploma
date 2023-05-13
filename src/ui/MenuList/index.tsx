@@ -18,6 +18,7 @@ const MenuList: React.FC<IMenuList> = ({ items }) => {
           icon={e.icon}
           text={e.text}
           href={e.href}
+          redirectToLogin={e.redirectToLogin}
         />
       ))}
     </div>

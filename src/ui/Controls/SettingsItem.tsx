@@ -28,6 +28,7 @@ const SettingsItem: React.FC<
       }}
       className={classNames(
         { [css.choosen]: selector === setting },
+        css.settingHover,
         css.container
       )}
     >

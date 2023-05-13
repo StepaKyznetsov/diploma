@@ -3,6 +3,7 @@ export interface IMenuItem {
   icon?: React.ReactNode;
   description?: string;
   href?: string;
+  redirectToLogin?: boolean;
 }
 
 export interface ISettingsItem<T> extends IMenuItem {

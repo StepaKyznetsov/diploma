@@ -5,7 +5,7 @@ import SplashScreen from "../../components/SplashScreen";
 const GameMode: React.FC = () => {
   return (
     <main>
-      <SplashScreen text="Переход к выбору режима игры" />
+      <SplashScreen text="К выбору режима игры" />
       <GameSettings />
     </main>
   );

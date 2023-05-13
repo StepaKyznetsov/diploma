@@ -14,7 +14,7 @@ interface IInGameInteractive {
 const InGameInteractive: React.FC<IInGameInteractive> = ({
   text,
   qNumber,
-  type,
+  type, 
   onClickHandler,
 }) => {
   return (

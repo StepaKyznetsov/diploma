@@ -13,7 +13,11 @@ const InputAnswer: React.FC<Question> = ({ text, answer, answerOptions }) => {
 
   return (
     <div className={css.container}>
-      <Input value={inputValue} onChange={handleInput} />
+      <Input
+        value={inputValue}
+        placeholder="Ваш ответ"
+        onChange={handleInput}
+      />
       {text}
     </div>
   );

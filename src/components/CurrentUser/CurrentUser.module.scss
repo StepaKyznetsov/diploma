@@ -1,0 +1,15 @@
+.container {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  .quit {
+    color: rgb(248, 49, 49);
+    transition: color 0.4s;
+    cursor: pointer;
+    margin-left: 0.5rem;
+
+    &:hover {
+      color: red;
+    }
+  }
+}

@@ -24,13 +24,15 @@ const Menu: React.FC = () => {
               icon: <BsFillPlayFill />,
               description: "Опробуйте свои знания в одном из режимов игры!",
               href: "/gamemode",
+              redirectToLogin: true
             },
             {
               text: "Учителю",
               icon: <GiTeacher />,
               description:
                 "Создайте свои собственные задания для вашего класса",
-              href: "/teacher",
+              href: "/teacherroom",
+              redirectToLogin: true
             },
           ]}
         />

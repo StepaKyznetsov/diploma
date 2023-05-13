@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import css from "./GameSettings.module.scss";
 import axios from "axios";
-import { BiBookOpen, BiTimer, BiInfinite } from "react-icons/bi";
+import { BiBookOpen, BiTimer } from "react-icons/bi";
+import { MdCastForEducation } from "react-icons/md";
 import BackArrow from "../../ui/BackArrow";
 import SettingsContainer from "../../ui/SettingsContainer";
 import MenuItem from "../../ui/Controls/MenuItem";
@@ -27,7 +28,7 @@ const GameSettings: React.FC = () => {
 
   useEffect(() => {
     resetSettings();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -51,8 +52,8 @@ const GameSettings: React.FC = () => {
             setting="blitz"
           />
           <SettingsItem
-            text="Бесконечный режим"
-            icon={<BiInfinite />}
+            text="Вариант учителя"
+            icon={<MdCastForEducation />}
             selector={gameMode}
             setting="infinity"
           />
@@ -68,7 +69,9 @@ const GameSettings: React.FC = () => {
           </div>
         )}
         <div className={css.playButton} onClick={() => getQuestions()}>
-          {modeGuards() && <MenuItem text="Играть" href={PLAY} />}
+          {modeGuards() && (
+            <MenuItem text="Играть" description="Начать игру" href={PLAY} />
+          )}
         </div>
       </div>
       <div className={css.characterRight}>
