@@ -9,7 +9,7 @@ interface ISelect {
 
 const Select: React.FC<ISelect> = ({ value, onChange }) => {
   return (
-    <select onChange={onChange} value={value}>
+    <select onChange={onChange} value={value} className={css.container}>
       <option value="student">Ученик</option>
       <option value="teacher">Учитель</option>
     </select>

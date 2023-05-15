@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import TaskContainer from "../../components/TaskContainer";
 import { useTypedSelector } from "../../hooks";
 import InGameInteractive from "../../ui/InGameInteractive";
@@ -6,8 +6,10 @@ import Timer from "../../components/Timer";
 import BackArrow from "../../ui/BackArrow";
 import SplashScreen from "../../components/SplashScreen";
 import { useTasks } from "../../hooks";
+import CharacterComment from "../../components/CharacterComment";
 
 const PlayGame: React.FC = () => {
+  const [visibleComment, setVisibleComment] = useState<boolean>(false);
   const { gameMode, time } = useTypedSelector((state) => state.settings);
   const {
     currentQuestionIndex,
@@ -15,6 +17,14 @@ const PlayGame: React.FC = () => {
     currentQuestion,
     Component,
   } = useTasks();
+
+  const checkAndGoNext = (): void => {
+    setVisibleComment(true);
+    setCurrentQuestionIndex((prev) => prev + 1);
+    setTimeout(() => {
+      setVisibleComment(false);
+    }, 1000);
+  };
 
   useEffect(() => {
     return () => setCurrentQuestionIndex(0);
@@ -24,6 +34,7 @@ const PlayGame: React.FC = () => {
   return (
     <main>
       <BackArrow />
+      <CharacterComment visible={visibleComment} />
       <SplashScreen text="Поиграем!" />
       <TaskContainer>
         <InGameInteractive
@@ -40,7 +51,7 @@ const PlayGame: React.FC = () => {
         <InGameInteractive
           text="Далее"
           type="nextQ"
-          onClickHandler={() => setCurrentQuestionIndex((prev) => prev + 1)}
+          onClickHandler={checkAndGoNext}
         />
         {gameMode === "blitz" && Number.isInteger(time) && (
           <Timer time={time} onTimerEnd={() => console.log(1)} />

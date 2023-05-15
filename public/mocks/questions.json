@@ -2,271 +2,67 @@
   {
     "text": "1 + 1 = ?",
     "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
+    "answerOptions": ["1", "2", "3", "4"],
     "type": "single"
   },
   {
     "text": "2 + 2 = ?",
     "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
+    "answerOptions": ["4", "7", "8", "2"],
+    "type": "single"
   },
   {
     "text": "3 + 3 = ?",
     "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
+    "answerOptions": ["9", "8", "6", "4"],
+    "type": "single"
   },
   {
     "text": "1 + 1 = ?",
     "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
+    "answerOptions": ["1", "2", "3", "4"],
     "type": "single"
   },
   {
     "text": "2 + 2 = ?",
     "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
+    "answerOptions": ["4", "7", "8", "2"],
+    "type": "single"
   },
   {
     "text": "3 + 3 = ?",
     "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
+    "answerOptions": ["9", "8", "6", "4"],
+    "type": "single"
   },
   {
     "text": "1 + 1 = ?",
     "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
+    "answerOptions": ["1", "2", "3", "4"],
     "type": "single"
   },
   {
     "text": "2 + 2 = ?",
     "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
+    "answerOptions": ["4", "7", "8", "2"],
+    "type": "single"
   },
   {
     "text": "3 + 3 = ?",
     "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
+    "answerOptions": ["9", "8", "6", "4"],
+    "type": "single"
   },
   {
     "text": "1 + 1 = ?",
     "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
+    "answerOptions": ["1", "2", "3", "4"],
     "type": "single"
   },
   {
     "text": "2 + 2 = ?",
     "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
-  },
-  {
-    "text": "3 + 3 = ?",
-    "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
-  },
-  {
-    "text": "1 + 1 = ?",
-    "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
+    "answerOptions": ["4", "7", "8", "2"],
     "type": "single"
-  },
-  {
-    "text": "2 + 2 = ?",
-    "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
-  },
-  {
-    "text": "3 + 3 = ?",
-    "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
-  },
-  {
-    "text": "1 + 1 = ?",
-    "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
-    "type": "single"
-  },
-  {
-    "text": "2 + 2 = ?",
-    "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
-  },
-  {
-    "text": "3 + 3 = ?",
-    "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
-  },
-  {
-    "text": "1 + 1 = ?",
-    "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
-    "type": "single"
-  },
-  {
-    "text": "2 + 2 = ?",
-    "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
-  },
-  {
-    "text": "3 + 3 = ?",
-    "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
-  },
-  {
-    "text": "1 + 1 = ?",
-    "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
-    "type": "single"
-  },
-  {
-    "text": "2 + 2 = ?",
-    "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
-  },
-  {
-    "text": "3 + 3 = ?",
-    "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
-  },
-  {
-    "text": "1 + 1 = ?",
-    "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
-    "type": "single"
-  },
-  {
-    "text": "2 + 2 = ?",
-    "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
-  },
-  {
-    "text": "3 + 3 = ?",
-    "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
-  },
-  {
-    "text": "1 + 1 = ?",
-    "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
-    "type": "single"
-  },
-  {
-    "text": "2 + 2 = ?",
-    "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
-  },
-  {
-    "text": "3 + 3 = ?",
-    "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
-  },
-  {
-    "text": "1 + 1 = ?",
-    "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
-    "type": "single"
-  },
-  {
-    "text": "2 + 2 = ?",
-    "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
-  },
-  {
-    "text": "3 + 3 = ?",
-    "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
-  },
-  {
-    "text": "1 + 1 = ?",
-    "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
-    "type": "single"
-  },
-  {
-    "text": "2 + 2 = ?",
-    "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
-  },
-  {
-    "text": "3 + 3 = ?",
-    "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
-  },
-  {
-    "text": "1 + 1 = ?",
-    "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
-    "type": "single"
-  },
-  {
-    "text": "2 + 2 = ?",
-    "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
-  },
-  {
-    "text": "3 + 3 = ?",
-    "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
-  },
-  {
-    "text": "1 + 1 = ?",
-    "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
-    "type": "single"
-  },
-  {
-    "text": "2 + 2 = ?",
-    "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
-  },
-  {
-    "text": "3 + 3 = ?",
-    "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
-  },
-  {
-    "text": "1 + 1 = ?",
-    "answer": "2",
-    "asnwerOptions": ["1", "2", "3", "4"],
-    "type": "single"
-  },
-  {
-    "text": "2 + 2 = ?",
-    "answer": "4",
-    "asnwerOptions": ["4", "7", "8", "2"],
-    "type": "multiple"
-  },
-  {
-    "text": "3 + 3 = ?",
-    "answer": "6",
-    "asnwerOptions": ["9", "8", "6", "4"],
-    "type": "input"
   }
 ]

@@ -19,6 +19,18 @@
     margin-top: 2rem;
     width: 40%;
   }
+  .searchGroup {
+    ul {
+      li {
+        cursor: pointer;
+        width: fit-content;
+        transition: color .4s;
+        &:hover {
+          color: rgb(68, 236, 68);
+        }
+      }
+    }
+  }
 }
 .characterRight {
   position: absolute;

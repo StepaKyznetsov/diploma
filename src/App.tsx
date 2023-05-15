@@ -6,7 +6,16 @@ import PlayGame from "./pages/PlayGame";
 import AllTasks from "./pages/AllTasks";
 import TeacherRoom from "./pages/TeacherRoom";
 import Login from "./pages/Login";
-import { ALL_TASKS, GAMEMODE, LOGIN, MAIN, PLAY, TEACHER_ROOM } from "./constants";
+import {
+  ALL_TASKS,
+  GAMEMODE,
+  LOGIN,
+  MAIN,
+  MY_VARIANTS,
+  PLAY,
+  TEACHER_ROOM,
+} from "./constants";
+import MyVariants from "./pages/MyVariants";
 
 const App: React.FC = () => {
   return (
@@ -18,6 +27,7 @@ const App: React.FC = () => {
         <Route path={ALL_TASKS} element={<AllTasks />} />
         <Route path={TEACHER_ROOM} element={<TeacherRoom />} />
         <Route path={LOGIN} element={<Login />} />
+        <Route path={MY_VARIANTS} element={<MyVariants />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </BrowserRouter>

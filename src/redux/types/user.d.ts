@@ -4,6 +4,7 @@ export interface UserState {
   name: string;
   surname: string;
   type: UserType;
+  group: string;
 }
 
 export enum UserActionTypes {
@@ -13,7 +14,7 @@ export enum UserActionTypes {
 
 interface SetUser {
   type: UserActionTypes.SET_USER;
-  payload: [string, string, UserType];
+  payload: [string, string, UserType, string];
 }
 
 interface ResetUser {

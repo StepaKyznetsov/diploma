@@ -29,26 +29,31 @@ const LoginForm: React.FC = () => {
     (value === "student" || value === "teacher") && setType(value);
   };
 
+  const groupName = type === "student" ? "5В класс" : "" 
+
   const login = () => {
-    setUser(name, surname, type);
-    navigate(MAIN)
+    setUser(name, surname, type, groupName);
+    navigate(MAIN);
   };
 
   return (
-    <form className={css.container}>
-      <Input
-        value={name}
-        onChange={handleName}
-        placeholder="Введите ваше имя"
-      />
-      <Input
-        value={surname}
-        onChange={handleSurname}
-        placeholder="Введите вашу фамилию"
-      />
-      <Select onChange={setCurrentType} value={type} />
-      <button onClick={login}>Вход</button>
-    </form>
+    <div className={css.container}>
+      <h1>Введите данные для входа</h1>
+      <form className={css.inner}>
+        <Input
+          value={name}
+          onChange={handleName}
+          placeholder="Введите ваше имя"
+        />
+        <Input
+          value={surname}
+          onChange={handleSurname}
+          placeholder="Введите вашу фамилию"
+        />
+        <Select onChange={setCurrentType} value={type} />
+        <button onClick={login}>Вход</button>
+      </form>
+    </div>
   );
 };
 
