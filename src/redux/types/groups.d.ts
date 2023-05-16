@@ -1,6 +1,7 @@
 import { Question } from "./questions";
 
 export interface Group {
+  author: string;
   name: string;
   questions: Question[];
 }

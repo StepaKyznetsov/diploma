@@ -64,5 +64,35 @@
     "answer": "4",
     "answerOptions": ["4", "7", "8", "2"],
     "type": "single"
+  },
+  {
+    "text": "3 + 3 = ?",
+    "answer": "6",
+    "answerOptions": ["9", "8", "6", "4"],
+    "type": "single"
+  },
+  {
+    "text": "1 + 1 = ?",
+    "answer": "2",
+    "answerOptions": ["1", "2", "3", "4"],
+    "type": "single"
+  },
+  {
+    "text": "2 + 2 = ?",
+    "answer": "4",
+    "answerOptions": ["4", "7", "8", "2"],
+    "type": "single"
+  },
+  {
+    "text": "1 + 1 = ?",
+    "answer": "2",
+    "answerOptions": ["1", "2", "3", "4"],
+    "type": "single"
+  },
+  {
+    "text": "2 + 2 = ?",
+    "answer": "4",
+    "answerOptions": ["4", "7", "8", "2"],
+    "type": "single"
   }
 ]

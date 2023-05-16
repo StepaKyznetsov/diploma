@@ -11,13 +11,12 @@ const CurrentUser: React.FC = () => {
 
   const typeRu = type === "student" ? "ученик" : "учитель";
   const currentUser: boolean = !!name && !!surname;
-  const groupName = type === "student" ? "5В класс" : "" 
 
   return (
     <div className={css.container}>
       <span>
         {currentUser
-          ? `Пользователь: ${name} ${surname} (${typeRu}) ${groupName}`
+          ? `Пользователь: ${name} ${surname} (${typeRu})`
           : "Вы ещё не вошли в систему"}
       </span>
       {currentUser ? (

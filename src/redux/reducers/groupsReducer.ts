@@ -7,7 +7,8 @@ import {
 const initialState: GroupsState = {
   groups: [],
   currentGroup: {
-    name: "5В класс",
+    author: "",
+    name: "",
     questions: [],
   },
 };

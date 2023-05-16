@@ -4,16 +4,17 @@
   top: 1rem;
   span {
     transition: color 0.4s;
-    cursor: pointer;
     margin-left: 0.5rem;
   }
   .quit {
+    cursor: pointer;
     color: rgb(235, 69, 69);
     &:hover {
       color: rgb(253, 0, 0);
     }
   }
   .login {
+    cursor: pointer;
     color: rgb(148, 252, 63);
     &:hover {
       color: rgb(2, 241, 2);

@@ -1,24 +1,32 @@
 import React, { useEffect, useState } from "react";
 import TaskContainer from "../../components/TaskContainer";
-import { useTypedSelector } from "../../hooks";
 import InGameInteractive from "../../ui/InGameInteractive";
 import Timer from "../../components/Timer";
 import BackArrow from "../../ui/BackArrow";
 import SplashScreen from "../../components/SplashScreen";
-import { useTasks } from "../../hooks";
+import { useTasks, useTypedSelector } from "../../hooks";
 import CharacterComment from "../../components/CharacterComment";
+import CharacterLine from "../../components/CharacterLine";
+import { findSlide } from "../../helpers";
+import { useNavigate } from "react-router-dom";
+import { GAME_OVER } from "../../constants";
 
 const PlayGame: React.FC = () => {
+  const navigate = useNavigate();
   const [visibleComment, setVisibleComment] = useState<boolean>(false);
   const { gameMode, time } = useTypedSelector((state) => state.settings);
   const {
+    isEnd,
     currentQuestionIndex,
     setCurrentQuestionIndex,
     currentQuestion,
     Component,
   } = useTasks();
 
+  const slideInfo = findSlide([0, 3, 6, 9, 15], currentQuestionIndex);
+
   const checkAndGoNext = (): void => {
+    if (isEnd) return navigate(GAME_OVER)
     setVisibleComment(true);
     setCurrentQuestionIndex((prev) => prev + 1);
     setTimeout(() => {
@@ -34,7 +42,15 @@ const PlayGame: React.FC = () => {
   return (
     <main>
       <BackArrow />
-      <CharacterComment visible={visibleComment} />
+      <CharacterComment
+        visible={visibleComment}
+      />
+      {gameMode === "classic" && slideInfo && (
+        <CharacterLine
+          imgSrc={slideInfo.slideImage}
+          text={slideInfo.slideText}
+        />
+      )}
       <SplashScreen text="Поиграем!" />
       <TaskContainer>
         <InGameInteractive

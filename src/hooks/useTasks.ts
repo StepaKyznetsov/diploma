@@ -16,8 +16,10 @@ export const useTasks = () => {
 
   const currentQuestion = questions[currentQuestionIndex];
   const Component = differentAnswersTypes[currentQuestion.type];
+  const isEnd = currentQuestionIndex === questions.length - 1;
 
   return {
+    isEnd,
     currentQuestionIndex,
     setCurrentQuestionIndex,
     currentQuestion,

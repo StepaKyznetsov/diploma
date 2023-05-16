@@ -10,16 +10,15 @@ interface ICharacterLine {
 }
 
 const CharacterLine: React.FC<ICharacterLine> = ({ imgSrc, text }) => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(true);
+  const [visibleClose, setVisibleClose] = useState<boolean>(false);
   const { displayText } = useTypewriter(text);
 
   useEffect(() => {
     setTimeout(() => {
-      setOpen(true);
-    }, 4000);
+      setVisibleClose(true);
+    }, 10000);
   }, []);
-
-  if (!open) return null;
 
   return (
     <div
@@ -32,7 +31,10 @@ const CharacterLine: React.FC<ICharacterLine> = ({ imgSrc, text }) => {
         <img src={imgSrc} alt="hero" />
         <p>{displayText}</p>
         <AiOutlineClose
-          className={css.close}
+          className={classNames(
+            { [css.visibleClose]: visibleClose },
+            css.close
+          )}
           onClick={() => {
             setOpen(false);
           }}

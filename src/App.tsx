@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import {
   ALL_TASKS,
   GAMEMODE,
+  GAME_OVER,
   LOGIN,
   MAIN,
   MY_VARIANTS,
@@ -16,6 +17,7 @@ import {
   TEACHER_ROOM,
 } from "./constants";
 import MyVariants from "./pages/MyVariants";
+import GameOver from "./pages/GameOver";
 
 const App: React.FC = () => {
   return (
@@ -28,6 +30,7 @@ const App: React.FC = () => {
         <Route path={TEACHER_ROOM} element={<TeacherRoom />} />
         <Route path={LOGIN} element={<Login />} />
         <Route path={MY_VARIANTS} element={<MyVariants />} />
+        <Route path={GAME_OVER} element={<GameOver />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </BrowserRouter>
