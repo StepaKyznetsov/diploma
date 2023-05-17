@@ -1,6 +1,7 @@
 import React from "react";
 import css from "./InGameInteractive.module.scss";
 import classNames from "classnames";
+import { useTypedSelector } from "../../hooks";
 
 type TInteractive = "qCounter" | "nextQ";
 
@@ -14,15 +15,22 @@ interface IInGameInteractive {
 const InGameInteractive: React.FC<IInGameInteractive> = ({
   text,
   qNumber,
-  type, 
+  type,
   onClickHandler,
 }) => {
+  const { currentAnswer } = useTypedSelector((state) => state.answer);
+
   return (
     <div
       className={classNames({ [css.nextQ]: type === "nextQ" }, css.container)}
     >
-      <span onClick={onClickHandler}>
-        {type === "qCounter" ? `${text} ${qNumber}` : "Далее"}
+      <span
+        onClick={onClickHandler}
+        className={classNames({
+          [css.disabled]: type === "nextQ" && !currentAnswer,
+        })}
+      >
+        {type === "qCounter" ? `${text} ${qNumber}` : "Ответить"}
       </span>
     </div>
   );

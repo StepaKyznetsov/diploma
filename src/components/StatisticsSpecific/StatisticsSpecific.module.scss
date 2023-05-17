@@ -1,0 +1,21 @@
+.container {
+  width: 50%;
+
+  .inner {
+    .title {
+      font-size: 25px;
+      border-bottom: 1px white solid;
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .modeSolo {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: center;
+      .modeRow {
+      }
+    }
+  }
+}

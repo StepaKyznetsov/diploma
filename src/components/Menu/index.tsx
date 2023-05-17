@@ -24,7 +24,7 @@ const Menu: React.FC = () => {
               icon: <BsFillPlayFill />,
               description: "Опробуйте свои знания в одном из режимов игры!",
               href: "/gamemode",
-              redirectToLogin: true
+              redirectToLogin: true,
             },
             {
               text: "Учителю",
@@ -32,7 +32,7 @@ const Menu: React.FC = () => {
               description:
                 "Создайте свои собственные задания для вашего класса",
               href: "/teacherroom",
-              redirectToLogin: true
+              redirectToLogin: true,
             },
           ]}
         />
@@ -42,19 +42,17 @@ const Menu: React.FC = () => {
               text: "Таблица",
               icon: <BsClipboard2Fill />,
               description: "Таблица результатов выполненных работ",
-              href: "/table",
             },
             {
-              text: "Банк заданий",
+              text: "Моя статистика",
               icon: <FaTasks />,
-              description: "Общий банк со всеми заданиями",
-              href: "/alltasks",
+              description: "Статистика решенных заданий по всем режимам",
+              href: "/mystatistics",
             },
             {
               text: "Авторы",
               icon: <BsFillPeopleFill />,
               description: "Пара слов об авторах приложения",
-              href: "/authors",
             },
           ]}
         />

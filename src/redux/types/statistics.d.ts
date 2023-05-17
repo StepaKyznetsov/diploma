@@ -1,6 +1,10 @@
+import { GameMode } from "./settings";
+import { UserType } from "./user";
+
 interface Person {
   name: string;
   surname: string;
+  userType: UserType;
   personalStatistics: SimpleStatistics[];
   groups: string[];
 }
@@ -11,6 +15,7 @@ interface Group {
 }
 
 interface SimpleStatistics {
+  type: GameMode;
   correctlyAnswers: number;
   wrongAnswers: number;
 }
@@ -31,32 +36,32 @@ export enum StatisticsActionTypes {
 }
 
 interface AddPerson {
-  type: AnswerActionTypes.ADD_PERSON;
+  type: StatisticsActionTypes.ADD_PERSON;
   payload: Person;
 }
 
 interface AddGroup {
-  type: AnswerActionTypes.ADD_GROUP;
+  type: StatisticsActionTypes.ADD_GROUP;
   payload: Group;
 }
 
 interface AddPersonalStatistics {
-  type: AnswerActionTypes.ADD_PERSONAL_STATISTICS;
-  payload: SimpleStatistics;
+  type: StatisticsActionTypes.ADD_PERSONAL_STATISTICS;
+  payload: [string, string, UserType, SimpleStatistics];
 }
 
 interface AddCorrectlyPoints {
-  type: AnswerActionTypes.ADD_CORRECTLY_POINTS;
+  type: StatisticsActionTypes.ADD_CORRECTLY_POINTS;
   payload: number;
 }
 
 interface AddWrongPoints {
-  type: AnswerActionTypes.ADD_WRONG_POINTS;
+  type: StatisticsActionTypes.ADD_WRONG_POINTS;
   payload: number;
 }
 
 interface ResetCurrentStatistics {
-  type: AnswerActionTypes.RESET_CURRENT_STATISTICS;
+  type: StatisticsActionTypes.RESET_CURRENT_STATISTICS;
 }
 
 export type StatisticsAction =

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import css from "./LoginForm.module.scss";
 import Input from "../../ui/Input";
 import Select from "../../ui/Select";
-import { useActions } from "../../hooks";
+import { useActions, useTypedSelector } from "../../hooks";
 import { UserType } from "../../redux/types/user";
 import { useNavigate } from "react-router-dom";
 import { MAIN } from "../../constants";
@@ -11,7 +11,8 @@ const LoginForm: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [surname, setSurname] = useState<string>("");
   const [type, setType] = useState<UserType>("student");
-  const { setUser } = useActions();
+  const { setUser, addPerson } = useActions();
+  const { persons } = useTypedSelector((state) => state.statistics);
   const navigate = useNavigate();
 
   const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,11 +30,21 @@ const LoginForm: React.FC = () => {
     (value === "student" || value === "teacher") && setType(value);
   };
 
-  const groupName = type === "student" ? "5В класс" : "" 
-
   const login = () => {
-    setUser(name, surname, type, groupName);
+    setUser(name, surname, type);
     navigate(MAIN);
+    if (
+      !persons.filter(
+        (e) => e.name === name && e.surname === surname && e.userType === type
+      ).length
+    )
+      addPerson({
+        name,
+        surname,
+        userType: type,
+        personalStatistics: [],
+        groups: [],
+      });
   };
 
   return (

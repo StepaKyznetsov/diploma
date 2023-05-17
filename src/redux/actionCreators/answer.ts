@@ -9,3 +9,11 @@ export const setCurrentAnswer = (answer: string) => {
     });
   };
 };
+
+export const resetAnswer = () => {
+  return (dispatch: Dispatch<AnswerAction>) => {
+    dispatch({
+      type: AnswerActionTypes.RESET_ANSWER,
+    });
+  };
+};

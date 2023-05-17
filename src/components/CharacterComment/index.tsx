@@ -7,7 +7,9 @@ interface ICharacterComment {
   visible: boolean;
 }
 
-const CharacterComment: React.FC<ICharacterComment> = ({ visible }) => {
+const CharacterComment: React.FC<ICharacterComment> = ({
+  visible,
+}) => {
   const [comment, image] = getRandomComment();
 
   const notify = () =>

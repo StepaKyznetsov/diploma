@@ -13,7 +13,6 @@ export const useTasks = () => {
     multiple: MultipleAnswer,
     input: InputAnswer,
   };
-
   const currentQuestion = questions[currentQuestionIndex];
   const Component = differentAnswersTypes[currentQuestion.type];
   const isEnd = currentQuestionIndex === questions.length - 1;

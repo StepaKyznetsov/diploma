@@ -4,7 +4,7 @@ import InGameInteractive from "../../ui/InGameInteractive";
 import Timer from "../../components/Timer";
 import BackArrow from "../../ui/BackArrow";
 import SplashScreen from "../../components/SplashScreen";
-import { useTasks, useTypedSelector } from "../../hooks";
+import { useActions, useTasks, useTypedSelector } from "../../hooks";
 import CharacterComment from "../../components/CharacterComment";
 import CharacterLine from "../../components/CharacterLine";
 import { findSlide } from "../../helpers";
@@ -13,8 +13,13 @@ import { GAME_OVER } from "../../constants";
 
 const PlayGame: React.FC = () => {
   const navigate = useNavigate();
+  const [correctlyAnswers, setCorrectlyAnswers] = useState<number>(0);
+  const [wrongAnswers, setWrongAnswers] = useState<number>(0);
   const [visibleComment, setVisibleComment] = useState<boolean>(false);
   const { gameMode, time } = useTypedSelector((state) => state.settings);
+  const { currentAnswer } = useTypedSelector((state) => state.answer);
+  const { name, surname, type } = useTypedSelector((state) => state.user);
+  const { resetAnswer, addPersonalStatistics } = useActions();
   const {
     isEnd,
     currentQuestionIndex,
@@ -25,13 +30,26 @@ const PlayGame: React.FC = () => {
 
   const slideInfo = findSlide([0, 3, 6, 9, 15], currentQuestionIndex);
 
+  const gameOver = () => {
+    addPersonalStatistics(name, surname, type, {
+      type: gameMode,
+      correctlyAnswers,
+      wrongAnswers,
+    });
+    navigate(GAME_OVER);
+  };
+
   const checkAndGoNext = (): void => {
-    if (isEnd) return navigate(GAME_OVER)
-    setVisibleComment(true);
+    if (currentAnswer !== currentQuestion.answer) {
+      setWrongAnswers((prev) => prev + 1);
+      setVisibleComment(true);
+      setTimeout(() => {
+        setVisibleComment(false);
+      }, 1000);
+    } else setCorrectlyAnswers((prev) => prev + 1);
+    resetAnswer();
+    if (isEnd) return gameOver();
     setCurrentQuestionIndex((prev) => prev + 1);
-    setTimeout(() => {
-      setVisibleComment(false);
-    }, 1000);
   };
 
   useEffect(() => {
@@ -42,9 +60,7 @@ const PlayGame: React.FC = () => {
   return (
     <main>
       <BackArrow />
-      <CharacterComment
-        visible={visibleComment}
-      />
+      <CharacterComment visible={visibleComment} />
       {gameMode === "classic" && slideInfo && (
         <CharacterLine
           imgSrc={slideInfo.slideImage}

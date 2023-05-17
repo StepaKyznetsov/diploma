@@ -2,7 +2,7 @@
 export const MAIN = "/";
 export const GAMEMODE = "/gamemode";
 export const PLAY = "/play";
-export const ALL_TASKS = "/alltasks";
+export const MY_STATISTICS = "/mystatistics";
 export const TEACHER_ROOM = "/teacherroom";
 export const LOGIN = "/login";
 export const MY_VARIANTS = "/myvariants";

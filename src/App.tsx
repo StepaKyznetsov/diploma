@@ -3,11 +3,13 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Main from "./pages/Main";
 import GameMode from "./pages/GameMode";
 import PlayGame from "./pages/PlayGame";
-import AllTasks from "./pages/AllTasks";
+import Statistics from "./pages/Statistics";
 import TeacherRoom from "./pages/TeacherRoom";
 import Login from "./pages/Login";
+import MyVariants from "./pages/MyVariants";
+import GameOver from "./pages/GameOver";
 import {
-  ALL_TASKS,
+  MY_STATISTICS,
   GAMEMODE,
   GAME_OVER,
   LOGIN,
@@ -16,8 +18,6 @@ import {
   PLAY,
   TEACHER_ROOM,
 } from "./constants";
-import MyVariants from "./pages/MyVariants";
-import GameOver from "./pages/GameOver";
 
 const App: React.FC = () => {
   return (
@@ -26,7 +26,7 @@ const App: React.FC = () => {
         <Route path={MAIN} element={<Main />} />
         <Route path={GAMEMODE} element={<GameMode />} />
         <Route path={PLAY} element={<PlayGame />} />
-        <Route path={ALL_TASKS} element={<AllTasks />} />
+        <Route path={MY_STATISTICS} element={<Statistics />} />
         <Route path={TEACHER_ROOM} element={<TeacherRoom />} />
         <Route path={LOGIN} element={<Login />} />
         <Route path={MY_VARIANTS} element={<MyVariants />} />

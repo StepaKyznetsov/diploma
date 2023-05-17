@@ -5,7 +5,7 @@ import {
 } from "../types/answer.d";
 
 const initialState: AnswerState = {
-  answer: [],
+  currentAnswer: "",
 };
 
 export const answerReducer = (
@@ -16,12 +16,12 @@ export const answerReducer = (
     case AnswerActionTypes.ADD_ANSWER:
       return {
         ...state,
-        answer: [...state.answer, action.payload],
+        currentAnswer: action.payload,
       };
     case AnswerActionTypes.RESET_ANSWER:
       return {
         ...state,
-        answer: [],
+        currentAnswer: "",
       };
     default:
       return state;

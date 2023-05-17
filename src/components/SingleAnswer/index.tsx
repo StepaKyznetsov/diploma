@@ -1,10 +1,9 @@
 import React from "react";
 import css from "./SingleAnswer.module.scss";
 import { Question } from "../../redux/types/questions.d";
-import MenuList from "../../ui/MenuList";
+import AnswerItem from "../../ui/Controls/AnswerItem";
 
-const SingleAnswer: React.FC<Question> = ({ text, answer, answerOptions }) => {
-
+const SingleAnswer: React.FC<Question> = ({ text, answerOptions }) => {
   return (
     <div className={css.container}>
       <div className={css.inner}>
@@ -13,26 +12,10 @@ const SingleAnswer: React.FC<Question> = ({ text, answer, answerOptions }) => {
             <span>{text}</span>
           </div>
           <div className={css.asks}>
-            <MenuList 
-              items={[
-                {
-                  text: answerOptions[0],
-                },
-                {
-                  text: answerOptions[1],
-                },
-              ]}
-            />
-            <MenuList 
-              items={[
-                {
-                  text: answerOptions[2],
-                },
-                {
-                  text: answerOptions[3],
-                },
-              ]}
-            />
+            <AnswerItem text={answerOptions[0]} />
+            <AnswerItem text={answerOptions[1]} />
+            <AnswerItem text={answerOptions[2]} />
+            <AnswerItem text={answerOptions[3]} />
           </div>
         </div>
       </div>

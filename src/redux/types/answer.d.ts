@@ -1,5 +1,5 @@
 export interface AnswerState {
-  answer: string[];
+  currentAnswer: string;
 }
 
 export enum AnswerActionTypes {
