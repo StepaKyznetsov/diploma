@@ -28,7 +28,7 @@ const PlayGame: React.FC = () => {
     Component,
   } = useTasks();
 
-  const slideInfo = findSlide([0, 3, 6, 9, 15], currentQuestionIndex);
+  const slideInfo = findSlide([0, 3, 6, 9, 13], currentQuestionIndex);
 
   const gameOver = () => {
     addPersonalStatistics(name, surname, type, {
