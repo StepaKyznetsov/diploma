@@ -26,11 +26,11 @@ const StatisticsSpecific: React.FC<IStatisticsSpecific> = ({ gameMode }) => {
 
   return (
     <>
-      {modesStatistics && (
+      {modesStatistics?.length !== 0 && (
         <div className={css.container}>
           <div className={css.inner}>
             <span className={css.title}>{gameModeRu}</span>
-            {modesStatistics.map((e, index) => (
+            {modesStatistics?.map((e, index) => (
               <div className={css.modeSolo} key={index}>
                 <span>Попытка № {index + 1}</span>
                 <div className={css.modeRow}>
