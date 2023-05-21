@@ -12,11 +12,12 @@ export const userReducer = (
 ): UserState => {
   switch (action.type) {
     case UserActionTypes.SET_USER:
+      const { name, surname, userType } = action.payload;
       return {
         ...state,
-        name: action.payload[0],
-        surname: action.payload[1],
-        type: action.payload[2],
+        name,
+        surname,
+        type: userType,
       };
     case UserActionTypes.RESET_USER:
       return {

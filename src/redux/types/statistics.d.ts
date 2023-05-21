@@ -9,27 +9,21 @@ interface Person {
   groups: string[];
 }
 
-interface Group {
-  name: string;
-  members: Person[];
-}
-
 interface SimpleStatistics {
   type: GameMode;
+  groupName?: string; 
   correctlyAnswers: number;
   wrongAnswers: number;
 }
 
 export interface StatisticsState {
   persons: Person[];
-  groups: Group[];
   current: SimpleStatistics;
 }
 
 export enum StatisticsActionTypes {
   ADD_PERSON = "ADD_PERSON",
   ADD_PERSONAL_STATISTICS = "ADD_PERSONAL_STATISTICS",
-  ADD_GROUP = "ADD_GROUP",
   ADD_CORRECTLY_POINTS = "ADD_CORRECTLY_POINTS",
   ADD_WRONG_POINTS = "ADD_WRONG_POINTS",
   RESET_CURRENT_STATISTICS = "RESET_CURRENT_STATISTICS",
@@ -40,14 +34,14 @@ interface AddPerson {
   payload: Person;
 }
 
-interface AddGroup {
-  type: StatisticsActionTypes.ADD_GROUP;
-  payload: Group;
-}
-
 interface AddPersonalStatistics {
   type: StatisticsActionTypes.ADD_PERSONAL_STATISTICS;
-  payload: [string, string, UserType, SimpleStatistics];
+  payload: {
+    name: string;
+    surname: string;
+    userType: UserType;
+    statistics: SimpleStatistics;
+  };
 }
 
 interface AddCorrectlyPoints {
@@ -66,7 +60,6 @@ interface ResetCurrentStatistics {
 
 export type StatisticsAction =
   | AddPerson
-  | AddGroup
   | AddPersonalStatistics
   | AddCorrectlyPoints
   | AddWrongPoints

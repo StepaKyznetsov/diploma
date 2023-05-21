@@ -9,11 +9,12 @@ import MenuItem from "../../ui/Controls/MenuItem";
 import SettingsItem from "../../ui/Controls/SettingsItem";
 import Input from "../../ui/Input";
 import { useTypedSelector, useActions } from "../../hooks";
-import { PLAY, groups } from "../../constants";
+import { PLAY } from "../../constants";
 
 const GameSettings: React.FC = () => {
   const [group, setGroup] = useState<string>("");
   const { resetSettings, setCurrentQuestions } = useActions();
+  const {groups} = useTypedSelector(state => state.groups)
   const { gameMode, questionsAmount, time } = useTypedSelector(
     (state) => state.settings
   );
@@ -33,7 +34,7 @@ const GameSettings: React.FC = () => {
     setGroup(e.target.value);
   };
 
-  const searchGroups = groups.filter(e => e.includes(group))
+  const searchGroups = groups.filter(e => e.title.includes(group))
 
   useEffect(() => {
     resetSettings();
@@ -87,7 +88,7 @@ const GameSettings: React.FC = () => {
             <ul>
               {group && searchGroups.map((e, index) => 
                 <li key={index}>
-                  {e}
+                  {e.title}
                 </li>
               )}
             </ul>

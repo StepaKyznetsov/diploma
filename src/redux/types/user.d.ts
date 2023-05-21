@@ -13,7 +13,7 @@ export enum UserActionTypes {
 
 interface SetUser {
   type: UserActionTypes.SET_USER;
-  payload: [string, string, UserType];
+  payload: { name: string; surname: string; userType: UserType };
 }
 
 interface ResetUser {

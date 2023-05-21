@@ -6,11 +6,7 @@ import {
 
 const initialState: GroupsState = {
   groups: [],
-  currentGroup: {
-    author: "",
-    name: "",
-    questions: [],
-  },
+  currentGroup: "",
 };
 
 export const groupsReducer = (
@@ -23,20 +19,42 @@ export const groupsReducer = (
         ...state,
         groups: [...state.groups, action.payload],
       };
-    case GroupsActionTypes.ADD_QUESTION_TO_GROUP:
-      return {
-        ...state,
-        currentGroup: {
-          ...state.currentGroup,
-          questions: [...state.currentGroup.questions, action.payload],
-        },
-      };
     case GroupsActionTypes.SET_CURRENT_GROUP:
       return {
         ...state,
         currentGroup: action.payload,
       };
-
+    case GroupsActionTypes.DELETE_GROUP:
+      return {
+        ...state,
+        groups: state.groups.filter((e) => e.title !== action.payload),
+      };
+    case GroupsActionTypes.ADD_QUESTION_TO_GROUP:
+      const { groupTitle, question } = action.payload;
+      return {
+        ...state,
+        groups: state.groups.map((e) =>
+          e.title === groupTitle
+            ? {
+                ...e,
+                questions: [...e.questions, question],
+              }
+            : e
+        ),
+      };
+    case GroupsActionTypes.DELETE_QUESTION_FROM_GROUP:
+      const { groupTitle: title, questionText } = action.payload;
+      return {
+        ...state,
+        groups: state.groups.map((e) =>
+          e.title === title
+            ? {
+                ...e,
+                questions: e.questions.filter((e) => e.text !== questionText),
+              }
+            : e
+        ),
+      };
     default:
       return state;
   }

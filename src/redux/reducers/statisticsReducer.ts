@@ -6,7 +6,6 @@ import {
 
 const initialState: StatisticsState = {
   persons: [],
-  groups: [],
   current: {
     type: "classic",
     correctlyAnswers: 0,
@@ -25,23 +24,18 @@ export const statisticsReducer = (
         persons: [...state.persons, action.payload],
       };
     case StatisticsActionTypes.ADD_PERSONAL_STATISTICS:
+      const { name, surname, userType, statistics } = action.payload;
       return {
         ...state,
         persons: state.persons.map((e) =>
-          e.name === action.payload[0] &&
-          e.surname === action.payload[1] &&
-          e.userType === action.payload[2]
+          e.name === name && e.surname === surname && e.userType === userType
             ? {
                 ...e,
-                personalStatistics: [
-                  ...e.personalStatistics,
-                  action.payload[3],
-                ],
+                personalStatistics: [...e.personalStatistics, statistics],
               }
             : e
         ),
       };
-
     case StatisticsActionTypes.RESET_CURRENT_STATISTICS:
       return {
         ...state,

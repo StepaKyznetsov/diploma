@@ -1,19 +1,23 @@
 import React, { ReactNode } from "react";
 import css from "./Modal.module.scss";
+import classNames from "classnames";
 
 interface IModal {
   children: ReactNode;
   visible: boolean;
+  small: boolean;
   setVisible(state: boolean): void;
 }
 
-const Modal: React.FC<IModal> = ({ children, visible, setVisible }) => {
-  const rootClasses = [css.modal];
-
-  if (visible) rootClasses.push(css.active);
-
+const Modal: React.FC<IModal> = ({ children, visible, setVisible, small }) => {
   return (
-    <div className={rootClasses.join(" ")} onClick={() => setVisible(false)}>
+    <div
+      className={classNames(
+        { [css.active]: visible, [css.small]: small },
+        css.modal
+      )}
+      onClick={() => setVisible(false)}
+    >
       <div className={css.content} onClick={(e) => e.stopPropagation()}>
         {children}
       </div>

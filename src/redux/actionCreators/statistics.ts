@@ -25,7 +25,7 @@ export const addPersonalStatistics = (
   return (dispatch: Dispatch<StatisticsAction>) => {
     dispatch({
       type: StatisticsActionTypes.ADD_PERSONAL_STATISTICS,
-      payload: [name, surname, userType, statistics],
+      payload: { name, surname, userType, statistics },
     });
   };
 };
