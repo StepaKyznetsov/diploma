@@ -14,6 +14,12 @@ interface SimpleStatistics {
   groupName?: string; 
   correctlyAnswers: number;
   wrongAnswers: number;
+  details: DetailedStatistics[];
+}
+
+export interface DetailedStatistics {
+  questionIndex: number;
+  correctAnswer: boolean;
 }
 
 export interface StatisticsState {

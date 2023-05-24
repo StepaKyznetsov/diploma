@@ -10,22 +10,32 @@ import SettingsItem from "../../ui/Controls/SettingsItem";
 import Input from "../../ui/Input";
 import { useTypedSelector, useActions } from "../../hooks";
 import { PLAY } from "../../constants";
+import GroupsList from "../../ui/GroupsList";
 
 const GameSettings: React.FC = () => {
   const [group, setGroup] = useState<string>("");
   const { resetSettings, setCurrentQuestions } = useActions();
-  const {groups} = useTypedSelector(state => state.groups)
+  const { groups, currentGroup } = useTypedSelector((state) => state.groups);
   const { gameMode, questionsAmount, time } = useTypedSelector(
     (state) => state.settings
   );
 
   const getQuestions = async () => {
-    const response = await axios.get("/mocks/questions.json");
-    setCurrentQuestions(response.data, questionsAmount);
+    if (gameMode === "classic") {
+      const response = await axios.get("/mocks/questions.json");
+      setCurrentQuestions(response.data, questionsAmount);
+    } else if (gameMode === "infinity") {
+      const questions = groups.find((e) => e.title === currentGroup)?.questions;
+      questions && setCurrentQuestions(questions, questions?.length);
+    }
   };
 
   const modeGuards = (): boolean => {
-    if (gameMode === "blitz" && !time) return false;
+    if (
+      (gameMode === "blitz" && !time) ||
+      (gameMode === "infinity" && !currentGroup)
+    )
+      return false;
     return true;
   };
 
@@ -33,8 +43,6 @@ const GameSettings: React.FC = () => {
     e.preventDefault();
     setGroup(e.target.value);
   };
-
-  const searchGroups = groups.filter(e => e.title.includes(group))
 
   useEffect(() => {
     resetSettings();
@@ -85,13 +93,7 @@ const GameSettings: React.FC = () => {
               value={group}
               onChange={handleChange}
             />
-            <ul>
-              {group && searchGroups.map((e, index) => 
-                <li key={index}>
-                  {e.title}
-                </li>
-              )}
-            </ul>
+            <GroupsList group={group} />
           </div>
         )}
         <div className={css.playButton} onClick={() => getQuestions()}>

@@ -6,16 +6,26 @@ import { QuestionType } from "../../redux/types/questions.d";
 
 interface IAddTask {
   setAddTask: React.Dispatch<React.SetStateAction<boolean>>;
-  questionIndex?: number;
 }
 
-const AddTask: React.FC<IAddTask> = ({ setAddTask, questionIndex }) => {
-  const [text, setText] = useState<string>("");
-  const [answer, setAnswer] = useState<string>("");
-  const [type, setType] = useState<QuestionType>("single");
-  const [answerOptions, setAnswerOptions] = useState<string>("");
-  const { currentGroup } = useTypedSelector((state) => state.groups);
-  const { addQuestionToGroup } = useActions();
+const AddTask: React.FC<IAddTask> = ({ setAddTask }) => {
+  const { addQuestionToGroup, deleteQuestionFromGroup } = useActions();
+  const { groups, currentGroup, currentQuestion } = useTypedSelector(
+    (state) => state.groups
+  );
+
+  const questionData = groups
+    .find((e) => e.title === currentGroup)
+    ?.questions.find((e) => e.text === currentQuestion);
+
+  const [text, setText] = useState<string>(questionData?.text || "");
+  const [answer, setAnswer] = useState<string>(questionData?.answer || "");
+  const [type, setType] = useState<QuestionType>(
+    questionData?.type || "single"
+  );
+  const [answerOptions, setAnswerOptions] = useState<string>(
+    questionData?.answerOptions.join(" ") || ""
+  );
 
   const handleText = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -49,6 +59,7 @@ const AddTask: React.FC<IAddTask> = ({ setAddTask, questionIndex }) => {
             type="radio"
             value="single"
             name="questionType"
+            checked={type === "single"}
             onChange={radioHandler}
           />
           Выбор ответа
@@ -58,6 +69,7 @@ const AddTask: React.FC<IAddTask> = ({ setAddTask, questionIndex }) => {
             type="radio"
             value="input"
             name="questionType"
+            checked={type === "input"}
             onChange={radioHandler}
           />
           Ввод ответа
@@ -83,6 +95,8 @@ const AddTask: React.FC<IAddTask> = ({ setAddTask, questionIndex }) => {
         <button
           onClick={() => {
             setAddTask(false);
+            if (currentQuestion)
+              deleteQuestionFromGroup(currentGroup, currentQuestion);
             addQuestionToGroup(currentGroup, {
               text,
               answer,
@@ -91,7 +105,7 @@ const AddTask: React.FC<IAddTask> = ({ setAddTask, questionIndex }) => {
             });
           }}
         >
-          Добавить задание
+          {currentQuestion ? "Изменить задание" : "Добавить задание"}
         </button>
       )}
     </div>

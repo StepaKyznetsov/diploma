@@ -5,7 +5,6 @@ export const PLAY = "/play";
 export const MY_STATISTICS = "/mystatistics";
 export const TEACHER_ROOM = "/teacherroom";
 export const LOGIN = "/login";
-export const MY_VARIANTS = "/myvariants";
 export const GAME_OVER = "/gameover";
 //enemies
 export const enemiesImages = [
@@ -52,13 +51,4 @@ export const history = [
   усердию, Жене удалось преодолеть свои страхи и стать еще лучше в учебе. Он стал лидером в классе и получил
   много новых друзей. В конце года он успешно сдал контрольные и получил заслуженную награду за отличную учебу. 
   Женя понял, что все возможно, если верить в себя и не бояться преодолевать свои страхи.`,
-];
-//groups
-export const groups = [
-  "5А класс",
-  "5Б класс",
-  "5В класс",
-  "5Г класс",
-  "6В класс",
-  "6Д класс",
 ];

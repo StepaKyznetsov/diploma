@@ -42,7 +42,7 @@ const PopupCreate: React.FC<IPopupCreate> = ({ setVisible }) => {
           setVisible(false);
         }}
       >
-        Сохранить
+        Создать
       </button>
     </div>
   );

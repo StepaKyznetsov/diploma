@@ -15,18 +15,23 @@ const PopupEdit: React.FC<IPopupEdit> = ({
   addTask,
   setAddTask,
 }) => {
-  const { deleteQuestionFromGroup } = useActions();
+  const { deleteQuestionFromGroup, setCurrentQuestion } = useActions();
   const { currentGroup } = useTypedSelector((state) => state.groups);
 
   return (
     <>
       <div>
         <h3>Редактирование заданий</h3>
-        <button onClick={() => setAddTask(!addTask)}>
+        <button
+          onClick={() => {
+            setCurrentQuestion("");
+            setAddTask(!addTask);
+          }}
+        >
           {addTask ? "Отмена" : "Добавить задание"}
         </button>
       </div>
-      {addTask && <AddTask setAddTask={setAddTask} questionIndex={2} />}
+      {addTask && <AddTask setAddTask={setAddTask} />}
       {!addTask && (
         <div className={css.currentTasks}>
           <h3>
@@ -38,7 +43,12 @@ const PopupEdit: React.FC<IPopupEdit> = ({
                 <li key={index}>
                   <span>Текст задания: {e.text}</span>
                   <span>Верный ответ: {e.answer}</span>
-                  <button onClick={() => setAddTask(!addTask)}>
+                  <button
+                    onClick={() => {
+                      setCurrentQuestion(e.text);
+                      setAddTask(!addTask);
+                    }}
+                  >
                     Редактировать
                   </button>
                   <button

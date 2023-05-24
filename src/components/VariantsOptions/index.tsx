@@ -6,9 +6,11 @@ import { IoCreateOutline, IoCloseOutline } from "react-icons/io5";
 import PopupCreate from "./PopupCreate";
 import PopupEdit from "./PopupEdit";
 import classNames from "classnames";
+import PopupStatistics from "./PopupStatistics";
 
 const VariantsOptions: React.FC = () => {
   const [modal, setModal] = useState<boolean>(false);
+  const [showStatistics, setShowStatistics] = useState<boolean>(false);
   const [addTask, setAddTask] = useState<boolean>(false);
   const [editMode, setEditMode] = useState<boolean>(false);
   const { groups, currentGroup } = useTypedSelector((state) => state.groups);
@@ -29,18 +31,29 @@ const VariantsOptions: React.FC = () => {
       </h2>
       <div className={css.existingVariants}>
         <h3>
-          {!personalGroups.length ? "Ваших вариантов нет" : "Мои варианты"}
+          {!personalGroups.length ? "Ваших вариантов пока нет" : "Мои варианты"}
         </h3>
         {personalGroups.map((e, index) => (
-          <div key={index} className={css.variant}>
+          <div
+            key={index}
+            className={css.variant}
+            onClick={() => setCurrentGroup(e.title)}
+          >
             <span>Название: {e.title}</span>
-            <span>Количество заданий: {e.questions.length}</span>
             <div>
               <button
                 onClick={() => {
                   setEditMode(true);
+                  setShowStatistics(true);
                   setModal(true);
-                  setCurrentGroup(e.title);
+                }}
+              >
+                Статистика
+              </button>
+              <button
+                onClick={() => {
+                  setEditMode(true);
+                  setModal(true);
                 }}
               >
                 Редактировать
@@ -56,7 +69,9 @@ const VariantsOptions: React.FC = () => {
               css.variantOptions
             )}
           >
-            {editMode ? (
+            {showStatistics ? (
+              <PopupStatistics />
+            ) : editMode ? (
               <PopupEdit
                 questions={
                   groups.find((e) => e.title === currentGroup)?.questions
@@ -72,6 +87,7 @@ const VariantsOptions: React.FC = () => {
             className={css.close}
             onClick={() => {
               setModal(false);
+              setShowStatistics(false);
               setEditMode(false);
             }}
           />

@@ -11,12 +11,15 @@ export interface Group {
 export interface GroupsState {
   groups: Group[];
   currentGroup: string;
+  currentQuestion: string;
 }
 
 export enum GroupsActionTypes {
   ADD_GROUP = "ADD_GROUP",
   DELETE_GROUP = "DELETE_GROUP",
   SET_CURRENT_GROUP = "SET_CURRENT_GROUP",
+  SET_CURRENT_QUESTION = "SET_CURRENT_QUESTION",
+  CHANGE_QUESTION = "CHANGE_QUESTION",
   ADD_MEMBER_TO_GROUP = "ADD_MEMBER_TO_GROUP",
   ADD_QUESTION_TO_GROUP = "ADD_QUESTION_TO_GROUP",
   DELETE_QUESTION_FROM_GROUP = "DELETE_QUESTION_FROM_GROUP",
@@ -35,6 +38,16 @@ interface DeleteGroup {
 interface SetCurrentGroup {
   type: GroupsActionTypes.SET_CURRENT_GROUP;
   payload: string;
+}
+
+interface SetCurrentQuestion {
+  type: GroupsActionTypes.SET_CURRENT_QUESTION;
+  payload: string;
+}
+
+interface ChangeQuestion {
+  type: GroupsActionTypes.CHANGE_QUESTION;
+  payload: Question;
 }
 
 interface AddMemberToGroup {
@@ -56,6 +69,8 @@ export type GroupsAction =
   | AddGroup
   | DeleteGroup
   | SetCurrentGroup
+  | SetCurrentQuestion
+  | ChangeQuestion
   | AddMemberToGroup
   | AddQuestionToGroup
   | DeleteQuestionFromGroup;

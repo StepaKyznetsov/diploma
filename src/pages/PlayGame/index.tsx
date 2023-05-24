@@ -10,16 +10,20 @@ import CharacterLine from "../../components/CharacterLine";
 import { findSlide } from "../../helpers";
 import { useNavigate } from "react-router-dom";
 import { GAME_OVER } from "../../constants";
+import { DetailedStatistics } from "../../redux/types/statistics";
 
 const PlayGame: React.FC = () => {
   const navigate = useNavigate();
   const [correctlyAnswers, setCorrectlyAnswers] = useState<number>(0);
   const [wrongAnswers, setWrongAnswers] = useState<number>(0);
   const [visibleComment, setVisibleComment] = useState<boolean>(false);
+  const [details, setDetails] = useState<DetailedStatistics[]>([]);
   const { gameMode, time } = useTypedSelector((state) => state.settings);
+  const { persons } = useTypedSelector((state) => state.statistics);
   const { currentAnswer } = useTypedSelector((state) => state.answer);
   const { name, surname, type } = useTypedSelector((state) => state.user);
-  const { resetAnswer, addPersonalStatistics } = useActions();
+  const { currentGroup } = useTypedSelector((state) => state.groups);
+  const { resetAnswer, addPersonalStatistics, addMemberToGroup } = useActions();
   const {
     isEnd,
     currentQuestionIndex,
@@ -30,16 +34,37 @@ const PlayGame: React.FC = () => {
 
   const slideInfo = findSlide([0, 3, 6, 9, 13], currentQuestionIndex);
 
-  const gameOver = () => {
-    addPersonalStatistics(name, surname, type, {
-      type: gameMode,
-      correctlyAnswers,
-      wrongAnswers,
+  function addStatistics() {
+    return new Promise((resolve, reject) => {
+      addPersonalStatistics(name, surname, type, {
+        type: gameMode,
+        groupName: currentGroup ? currentGroup : "",
+        correctlyAnswers,
+        wrongAnswers,
+        details,
+      })
+      resolve(1);
     });
-    navigate(GAME_OVER);
+  }
+
+  const gameOver = () => {
+    addStatistics().then(() => {
+      const currentPerson = persons.find(
+        (e) => e.name === name && e.surname === surname && e.userType === type
+      );
+      currentPerson && addMemberToGroup(currentGroup, currentPerson);
+      navigate(GAME_OVER);
+    });
   };
 
-  const checkAndGoNext = (): void => {
+  const checkAndGoNext = () => {
+    setDetails([
+      ...details,
+      {
+        questionIndex: currentQuestionIndex + 1,
+        correctAnswer: currentAnswer === currentQuestion.answer,
+      },
+    ]);
     if (currentAnswer !== currentQuestion.answer) {
       setWrongAnswers((prev) => prev + 1);
       setVisibleComment(true);

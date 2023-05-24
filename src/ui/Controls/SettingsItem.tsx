@@ -3,17 +3,25 @@ import css from "./Controls.module.scss";
 import { ISettingsItem } from "../../interfaces/Controls";
 import classNames from "classnames";
 import { useActions } from "../../hooks";
-import { GameMode, QuestionsAmount, Time } from '../../redux/types/settings.d'
+import { GameMode, QuestionsAmount, Time } from "../../redux/types/settings.d";
 
 const SettingsItem: React.FC<
   ISettingsItem<GameMode | QuestionsAmount | Time>
 > = ({ selector, setting, icon, text }) => {
-  const { setCurrentGameMode, setCurrentQuestionsAmount, setCurrentTime } = useActions();
-  const isGameMode = setting === "classic" || setting === "blitz" || setting === "infinity";
+  const {
+    setCurrentGameMode,
+    setCurrentQuestionsAmount,
+    setCurrentTime,
+    setCurrentGroup,
+  } = useActions();
+
+  const isGameMode =
+    setting === "classic" || setting === "blitz" || setting === "infinity";
   const isQuestionsAmount = setting === 10 || setting === 20 || setting === 30;
   const isTime = setting === 60 || setting === 120 || setting === 180;
 
   const changeGameMode = (mode: GameMode) => {
+    setCurrentGroup("");
     setCurrentQuestionsAmount(null);
     setCurrentTime(null);
     setCurrentGameMode(mode);

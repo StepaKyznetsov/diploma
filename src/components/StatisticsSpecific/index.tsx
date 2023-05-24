@@ -31,17 +31,37 @@ const StatisticsSpecific: React.FC<IStatisticsSpecific> = ({ gameMode }) => {
           <div className={css.inner}>
             <span className={css.title}>{gameModeRu}</span>
             {modesStatistics?.map((e, index) => (
-              <div className={css.modeSolo} key={index}>
-                <span>Попытка № {index + 1}</span>
-                <div className={css.modeRow}>
-                  <span>Верно:</span>
-                  <span> {e.correctlyAnswers}</span>
+              <>
+                <div className={css.modeSolo} key={index}>
+                  {gameModeRu === 'Варианты учителя' ? (
+                   <span>Вариант: "{e.groupName}"</span>
+                  ) : (
+                    <span>Попытка № {index + 1}</span>
+                  )}
+                  <div className={css.modeRow}>
+                    <span>Верно:</span>
+                    <span> {e.correctlyAnswers}</span>
+                  </div>
+                  <div className={css.modeRow}>
+                    <span>Неверно:</span>
+                    <span> {e.wrongAnswers}</span>
+                  </div>
                 </div>
-                <div className={css.modeRow}>
-                  <span>Неверно:</span>
-                  <span> {e.wrongAnswers}</span>
-                </div>
-              </div>
+                {e.details && (
+                  <div className={css.details}>
+                    {e.details.map((e, index) => (
+                      <span
+                        className={
+                          e.correctAnswer ? css.correctAnswer : css.wrongAnswer
+                        }
+                        key={index}
+                      >
+                        {e.questionIndex}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </>
             ))}
           </div>
         </div>

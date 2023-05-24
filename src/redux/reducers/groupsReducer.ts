@@ -7,6 +7,7 @@ import {
 const initialState: GroupsState = {
   groups: [],
   currentGroup: "",
+  currentQuestion: "",
 };
 
 export const groupsReducer = (
@@ -24,6 +25,11 @@ export const groupsReducer = (
         ...state,
         currentGroup: action.payload,
       };
+    case GroupsActionTypes.SET_CURRENT_QUESTION:
+      return {
+        ...state,
+        currentQuestion: action.payload,
+      };
     case GroupsActionTypes.DELETE_GROUP:
       return {
         ...state,
@@ -38,6 +44,19 @@ export const groupsReducer = (
             ? {
                 ...e,
                 questions: [...e.questions, question],
+              }
+            : e
+        ),
+      };
+    case GroupsActionTypes.ADD_MEMBER_TO_GROUP:
+      const { groupTitle: group, member } = action.payload;
+      return {
+        ...state,
+        groups: state.groups.map((e) =>
+          e.title === group
+            ? {
+                ...e,
+                members: [...e.members, member],
               }
             : e
         ),

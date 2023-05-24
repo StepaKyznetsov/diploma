@@ -10,6 +10,7 @@ const initialState: StatisticsState = {
     type: "classic",
     correctlyAnswers: 0,
     wrongAnswers: 0,
+    details: []
   },
 };
 
@@ -43,6 +44,7 @@ export const statisticsReducer = (
           type: "classic",
           correctlyAnswers: 0,
           wrongAnswers: 0,
+          details: []
         },
       };
     default:

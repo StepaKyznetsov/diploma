@@ -26,6 +26,15 @@ export const setCurrentGroup = (groupTitle: string) => {
   };
 };
 
+export const setCurrentQuestion = (questionText: string) => {
+  return (dispatch: Dispatch<GroupsAction>) => {
+    dispatch({
+      type: GroupsActionTypes.SET_CURRENT_QUESTION,
+      payload: questionText,
+    });
+  };
+};
+
 export const deleteGroup = (groupTitle: string) => {
   return (dispatch: Dispatch<GroupsAction>) => {
     dispatch({
@@ -40,6 +49,15 @@ export const addQuestionToGroup = (groupTitle: string, question: Question) => {
     dispatch({
       type: GroupsActionTypes.ADD_QUESTION_TO_GROUP,
       payload: { groupTitle, question },
+    });
+  };
+};
+
+export const addMemberToGroup = (groupTitle: string, member: Person) => {
+  return (dispatch: Dispatch<GroupsAction>) => {
+    dispatch({
+      type: GroupsActionTypes.ADD_MEMBER_TO_GROUP,
+      payload: { groupTitle, member },
     });
   };
 };
