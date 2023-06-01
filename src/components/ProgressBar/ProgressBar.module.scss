@@ -1,0 +1,57 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  pointer-events: none;
+  .inner {
+    padding: 16px;
+    width: 70%;
+    position: relative;
+    .stepsLeft {
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      background-color: red;
+    }
+    .stepsRight {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      width: 50%;
+      background-color: rgb(111, 248, 111);
+    }
+    .lose {
+      position: absolute;
+      left: -4%;
+      top: -1rem;
+      height: 7rem;
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+    .win {
+      position: absolute;
+      right: -4%;
+      top: -1rem;
+      height: 7rem;
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+    .hero {
+      position: absolute;
+      height: 7rem;
+      top: -1rem;
+      left: 45%;
+      transition: left .8s;
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+}

@@ -31,8 +31,8 @@ const StatisticsSpecific: React.FC<IStatisticsSpecific> = ({ gameMode }) => {
           <div className={css.inner}>
             <span className={css.title}>{gameModeRu}</span>
             {modesStatistics?.map((e, index) => (
-              <>
-                <div className={css.modeSolo} key={index}>
+              <div key={index}>
+                <div className={css.modeSolo}>
                   {gameModeRu === 'Варианты учителя' ? (
                    <span>Вариант: "{e.groupName}"</span>
                   ) : (
@@ -61,7 +61,7 @@ const StatisticsSpecific: React.FC<IStatisticsSpecific> = ({ gameMode }) => {
                     ))}
                   </div>
                 )}
-              </>
+              </div>
             ))}
           </div>
         </div>

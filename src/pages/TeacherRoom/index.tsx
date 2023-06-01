@@ -3,7 +3,6 @@ import BackArrow from "../../ui/BackArrow";
 import SplashScreen from "../../components/SplashScreen";
 import VariantsOptions from "../../components/VariantsOptions";
 
-
 const TeacherRoom: React.FC = () => {
   return (
     <main>

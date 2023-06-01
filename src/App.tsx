@@ -7,15 +7,8 @@ import Statistics from "./pages/Statistics";
 import TeacherRoom from "./pages/TeacherRoom";
 import Login from "./pages/Login";
 import GameOver from "./pages/GameOver";
-import {
-  MY_STATISTICS,
-  GAMEMODE,
-  GAME_OVER,
-  LOGIN,
-  MAIN,
-  PLAY,
-  TEACHER_ROOM,
-} from "./constants";
+import { MY_STATISTICS, GAMEMODE, GAME_OVER, 
+  LOGIN, MAIN, PLAY, TEACHER_ROOM } from "./constants";
 
 const App: React.FC = () => {
   return (

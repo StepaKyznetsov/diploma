@@ -8,7 +8,7 @@ interface ISplashScreen {
   text: string;
 }
 
-const SplashScreen: React.FC<ISplashScreen> = ({text}) => {
+const SplashScreen: React.FC<ISplashScreen> = ({ text }) => {
   const [showSplashScreen, setShowSplashScreen] = useState<boolean>(true);
   const [hideAnimation, setHideAnimation] = useState<boolean>(false);
   const { displayText } = useTypewriter(text);
