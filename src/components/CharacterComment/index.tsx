@@ -7,9 +7,7 @@ interface ICharacterComment {
   visible: boolean;
 }
 
-const CharacterComment: React.FC<ICharacterComment> = ({
-  visible,
-}) => {
+const CharacterComment: React.FC<ICharacterComment> = ({ visible }) => {
   const [comment, image] = getRandomComment();
 
   const notify = () =>
@@ -21,7 +19,7 @@ const CharacterComment: React.FC<ICharacterComment> = ({
 
   visible && notify();
 
-  return <ToastContainer hideProgressBar theme="dark" />;
+  return <ToastContainer hideProgressBar position="top-left" theme="dark" />;
 };
 
 export default CharacterComment;

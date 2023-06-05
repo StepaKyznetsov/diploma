@@ -14,22 +14,38 @@ const CurrentStatistics: React.FC = () => {
     )
     ?.personalStatistics.slice(-1);
 
+  const result =
+    currentStatistics &&
+    (currentStatistics[0].result === "victory"
+      ? "Победа"
+      : currentStatistics[0].result === "loss"
+      ? "Проигрыш"
+      : "Неплохая попытка");
+
   return (
     <div className={css.container}>
       <div className={css.inner}>
         <h2>Статистика за текущую попытку:</h2>
-        <div className={css.answers}>
-          <span className={css.correctly}>Верных ответов:</span>
-          {currentStatistics && (
-            <span>{currentStatistics[0].correctlyAnswers}</span>
-          )}
-        </div>
-        <div className={css.answers}>
-          <span className={css.wrong}>Неверных ответов:</span>
-          {currentStatistics && (
-            <span>{currentStatistics[0].wrongAnswers}</span>
-          )}
-        </div>
+        {currentStatistics && (
+          <>
+            <div className={css.answers}>
+              <span>Итог: </span>
+              <span>{result}</span>
+            </div>
+            <div className={css.answers}>
+              <span>Среднее количество очков: </span>
+              <span>{currentStatistics[0].averageScores}</span>
+            </div>
+            <div className={css.answers}>
+              <span className={css.correctly}>Верных ответов:</span>
+              <span>{currentStatistics[0].correctlyAnswers}</span>
+            </div>
+            <div className={css.answers}>
+              <span className={css.wrong}>Неверных ответов:</span>
+              <span>{currentStatistics[0].wrongAnswers}</span>
+            </div>
+          </>
+        )}
         <MenuItem
           text="Главная"
           description="Вернуться на главную страницу"

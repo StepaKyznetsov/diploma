@@ -23,7 +23,7 @@ const StatisticsSpecific: React.FC<IStatisticsSpecific> = ({ gameMode }) => {
       : gameMode === "blitz"
       ? "Блиц"
       : "Варианты учителя";
-
+      console.log(modesStatistics)
   return (
     <>
       {modesStatistics?.length !== 0 && (

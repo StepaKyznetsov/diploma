@@ -35,6 +35,24 @@ export const setCurrentQuestion = (questionText: string) => {
   };
 };
 
+export const setPointsToWin = (groupTitle: string, pointsToWin: number) => {
+  return (dispatch: Dispatch<GroupsAction>) => {
+    dispatch({
+      type: GroupsActionTypes.SET_POINTS_TO_WIN,
+      payload: { groupTitle, pointsToWin },
+    });
+  };
+};
+
+export const setPointsToLose = (groupTitle: string, pointsToLose: number) => {
+  return (dispatch: Dispatch<GroupsAction>) => {
+    dispatch({
+      type: GroupsActionTypes.SET_POINTS_TO_LOSE,
+      payload: { groupTitle, pointsToLose },
+    });
+  };
+};
+
 export const deleteGroup = (groupTitle: string) => {
   return (dispatch: Dispatch<GroupsAction>) => {
     dispatch({

@@ -6,6 +6,8 @@ export interface Group {
   title: string;
   questions: Question[];
   members: Person[];
+  pointsToWin?: number;
+  pointsToLose?: number;
 }
 
 export interface GroupsState {
@@ -19,6 +21,8 @@ export enum GroupsActionTypes {
   DELETE_GROUP = "DELETE_GROUP",
   SET_CURRENT_GROUP = "SET_CURRENT_GROUP",
   SET_CURRENT_QUESTION = "SET_CURRENT_QUESTION",
+  SET_POINTS_TO_WIN = "SET_POINTS_TO_WIN",
+  SET_POINTS_TO_LOSE = "SET_POINTS_TO_LOSE",
   CHANGE_QUESTION = "CHANGE_QUESTION",
   ADD_MEMBER_TO_GROUP = "ADD_MEMBER_TO_GROUP",
   ADD_QUESTION_TO_GROUP = "ADD_QUESTION_TO_GROUP",
@@ -50,6 +54,16 @@ interface ChangeQuestion {
   payload: Question;
 }
 
+interface SetPointsToWin {
+  type: GroupsActionTypes.SET_POINTS_TO_WIN;
+  payload: { groupTitle: string; pointsToWin: number };
+}
+
+interface SetPointsToLose {
+  type: GroupsActionTypes.SET_POINTS_TO_LOSE;
+  payload: { groupTitle: string; pointsToLose: number };
+}
+
 interface AddMemberToGroup {
   type: GroupsActionTypes.ADD_MEMBER_TO_GROUP;
   payload: { groupTitle: string; member: Person };
@@ -70,6 +84,8 @@ export type GroupsAction =
   | DeleteGroup
   | SetCurrentGroup
   | SetCurrentQuestion
+  | SetPointsToWin
+  | SetPointsToLose
   | ChangeQuestion
   | AddMemberToGroup
   | AddQuestionToGroup

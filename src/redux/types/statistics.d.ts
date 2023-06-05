@@ -1,6 +1,8 @@
 import { GameMode } from "./settings";
 import { UserType } from "./user";
 
+type Result = "victory" | "loss" | "draw";
+
 interface Person {
   name: string;
   surname: string;
@@ -11,10 +13,12 @@ interface Person {
 
 interface SimpleStatistics {
   type: GameMode;
-  groupName?: string; 
+  groupName?: string;
   correctlyAnswers: number;
   wrongAnswers: number;
   details: DetailedStatistics[];
+  averageScores?: string;
+  result?: Result;
 }
 
 export interface DetailedStatistics {

@@ -100,6 +100,11 @@
     }
   }
 }
+.metaOptions {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
 
 .correctAnswer {
   color: white;

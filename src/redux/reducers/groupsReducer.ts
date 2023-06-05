@@ -61,6 +61,32 @@ export const groupsReducer = (
             : e
         ),
       };
+    case GroupsActionTypes.SET_POINTS_TO_WIN:
+      const { groupTitle: groupName, pointsToWin } = action.payload;
+      return {
+        ...state,
+        groups: state.groups.map((e) =>
+          e.title === groupName
+            ? {
+                ...e,
+                pointsToWin: pointsToWin,
+              }
+            : e
+        ),
+      };
+    case GroupsActionTypes.SET_POINTS_TO_LOSE:
+      const { groupTitle: groupN, pointsToLose } = action.payload;
+      return {
+        ...state,
+        groups: state.groups.map((e) =>
+          e.title === groupN
+            ? {
+                ...e,
+                pointsToLose: pointsToLose,
+              }
+            : e
+        ),
+      };
     case GroupsActionTypes.DELETE_QUESTION_FROM_GROUP:
       const { groupTitle: title, questionText } = action.payload;
       return {

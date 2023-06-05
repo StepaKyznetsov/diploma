@@ -3,6 +3,7 @@ import css from "./VariantsOptions.module.scss";
 import AddTask from "../AddTask";
 import { Question } from "../../redux/types/questions";
 import { useActions, useTypedSelector } from "../../hooks";
+import WinLosePoints from "../WinLosePoints";
 
 interface IPopupEdit {
   questions?: Question[];
@@ -20,16 +21,22 @@ const PopupEdit: React.FC<IPopupEdit> = ({
 
   return (
     <>
-      <div>
-        <h3>Редактирование заданий</h3>
-        <button
-          onClick={() => {
-            setCurrentQuestion("");
-            setAddTask(!addTask);
-          }}
-        >
-          {addTask ? "Отмена" : "Добавить задание"}
-        </button>
+      <div className={css.metaOptions}>
+        <div>
+          <h3>Редактирование заданий</h3>
+          <button
+            onClick={() => {
+              setCurrentQuestion("");
+              setAddTask(!addTask);
+            }}
+          >
+            {addTask ? "Отмена" : "Добавить задание"}
+          </button>
+        </div>
+        <div>
+          <h3>Количество очков для победы/проигрыша</h3>
+          <WinLosePoints />
+        </div>
       </div>
       {addTask && <AddTask setAddTask={setAddTask} />}
       {!addTask && (

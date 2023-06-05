@@ -1,6 +1,13 @@
 .container {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    font-size: 25px;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  .block {
+    width: 140px;
+    display: flex;
+    justify-content: space-between;
+  }
 }

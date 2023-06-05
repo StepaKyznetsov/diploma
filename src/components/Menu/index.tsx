@@ -9,6 +9,13 @@ import {
 } from "react-icons/bs";
 import { GiTeacher } from "react-icons/gi";
 import { FaTasks } from "react-icons/fa";
+import {
+  AUTHORS,
+  GAMEMODE,
+  LEADERBOARD,
+  MY_STATISTICS,
+  TEACHER_ROOM,
+} from "../../constants";
 
 const Menu: React.FC = () => {
   return (
@@ -23,7 +30,7 @@ const Menu: React.FC = () => {
               text: "Играть",
               icon: <BsFillPlayFill />,
               description: "Опробуйте свои знания в одном из режимов игры!",
-              href: "/gamemode",
+              href: GAMEMODE,
               redirectToLogin: true,
             },
             {
@@ -31,7 +38,7 @@ const Menu: React.FC = () => {
               icon: <GiTeacher />,
               description:
                 "Создайте свои собственные задания для вашего класса",
-              href: "/teacherroom",
+              href: TEACHER_ROOM,
               redirectToLogin: true,
             },
           ]}
@@ -41,18 +48,20 @@ const Menu: React.FC = () => {
             {
               text: "Таблица",
               icon: <BsClipboard2Fill />,
+              href: LEADERBOARD,
               description: "Таблица результатов выполненных работ",
             },
             {
               text: "Моя статистика",
               icon: <FaTasks />,
               description: "Статистика решенных заданий по всем режимам",
-              href: "/mystatistics",
+              href: MY_STATISTICS,
             },
             {
               text: "Авторы",
               icon: <BsFillPeopleFill />,
               description: "Пара слов об авторах приложения",
+              href: AUTHORS,
             },
           ]}
         />

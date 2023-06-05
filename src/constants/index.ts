@@ -4,6 +4,8 @@ export const GAMEMODE = "/gamemode";
 export const PLAY = "/play";
 export const MY_STATISTICS = "/mystatistics";
 export const TEACHER_ROOM = "/teacherroom";
+export const LEADERBOARD = "/leaderboard";
+export const AUTHORS = "/authors";
 export const LOGIN = "/login";
 export const GAME_OVER = "/gameover";
 //enemies

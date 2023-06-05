@@ -5,17 +5,26 @@ import { useNumbersCounter } from "../../hooks";
 interface IPointsCounter {
   initialValue: number;
   endValue: number;
+  seconds: number;
 }
 
 const PointsCounter: React.FC<IPointsCounter> = ({
   initialValue,
   endValue,
+  seconds,
 }) => {
   const numbers = useNumbersCounter(initialValue, 1, 1, endValue);
 
   return (
     <div className={css.container}>
-      <span>Очки: {numbers}</span>
+      <div className={css.block}>
+        <span>Очки: </span>
+        <span>{numbers}</span>
+      </div>
+      <div className={css.block}>
+        <span>Время: </span>
+        <span>{seconds} c</span>
+      </div>
     </div>
   );
 };

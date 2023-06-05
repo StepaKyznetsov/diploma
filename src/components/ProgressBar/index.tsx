@@ -28,11 +28,11 @@ const ProgressBar: React.FC<IProgressBar> = ({
       <div className={css.inner}>
         <div className={css.stepsLeft}></div>
         <div className={css.stepsRight}></div>
-        <div className={css.lose}>
-          <img src="/images/enemy1.png" alt="gameOver" />
+        <div className={css.loss}>
+          <img src="/images/enemy1.png" alt="loss" />
         </div>
-        <div className={css.win}>
-          <img src="/images/finish.png" alt="finish" />
+        <div className={css.victory}>
+          <img src="/images/finish.png" alt="victory" />
         </div>
         <div className={css.hero} style={{ left: isAnswerCorrect ? rightShift : leftShift }}>
           <img src="/images/character3.png" alt="hero" />

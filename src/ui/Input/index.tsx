@@ -3,15 +3,16 @@ import css from "./Input.module.scss";
 
 interface IInput {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value: string;
+  value: string | number;
   placeholder: string;
+  type?: 'text' | 'number'
 }
 
-const Input: React.FC<IInput> = ({ onChange, value, placeholder }) => {
+const Input: React.FC<IInput> = ({ onChange, value, placeholder, type='text' }) => {
   return (
     <div className={css.container}>
       <input
-        type="text"
+        type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}

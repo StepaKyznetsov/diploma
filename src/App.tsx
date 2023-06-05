@@ -7,8 +7,20 @@ import Statistics from "./pages/Statistics";
 import TeacherRoom from "./pages/TeacherRoom";
 import Login from "./pages/Login";
 import GameOver from "./pages/GameOver";
-import { MY_STATISTICS, GAMEMODE, GAME_OVER, 
-  LOGIN, MAIN, PLAY, TEACHER_ROOM } from "./constants";
+import Leaderboard from "./pages/Leaderboard";
+import Authors from "./pages/Authors";
+
+import {
+  MY_STATISTICS,
+  GAMEMODE,
+  GAME_OVER,
+  LEADERBOARD,
+  LOGIN,
+  MAIN,
+  PLAY,
+  TEACHER_ROOM,
+  AUTHORS
+} from "./constants";
 
 const App: React.FC = () => {
   return (
@@ -19,6 +31,8 @@ const App: React.FC = () => {
         <Route path={PLAY} element={<PlayGame />} />
         <Route path={MY_STATISTICS} element={<Statistics />} />
         <Route path={TEACHER_ROOM} element={<TeacherRoom />} />
+        <Route path={LEADERBOARD} element={<Leaderboard />} />
+        <Route path={AUTHORS} element={<Authors />} />
         <Route path={LOGIN} element={<Login />} />
         <Route path={GAME_OVER} element={<GameOver />} />
         <Route path="*" element={<Navigate replace to="/" />} />
