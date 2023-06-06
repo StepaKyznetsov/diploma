@@ -13,10 +13,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    p {
+    .text {
       width: 60%;
-      font-size: 24px;
-      color: black;
+      p {
+        margin: 0;
+        font-size: 24px;
+        color: black;
+      }
+      .subtext {
+        color: #673ab7;
+        animation: visibleSubtext 12s ease-in-out;
+      }
     }
     .close {
       color: black;
@@ -28,7 +35,7 @@
       height: auto;
       padding: 1rem;
       cursor: pointer;
-      transition: transform .2s ease-in-out;
+      transition: transform 0.2s ease-in-out;
       opacity: 0;
       pointer-events: none;
       &:hover {
@@ -75,7 +82,19 @@
 }
 
 .visibleClose {
-  transition: all .4s !important;
+  transition: all 0.4s !important;
   opacity: 1 !important;
   pointer-events: all !important;
+}
+
+@keyframes visibleSubtext {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

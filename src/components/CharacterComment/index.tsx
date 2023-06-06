@@ -19,7 +19,14 @@ const CharacterComment: React.FC<ICharacterComment> = ({ visible }) => {
 
   visible && notify();
 
-  return <ToastContainer hideProgressBar position="top-left" theme="dark" />;
+  return (
+    <ToastContainer
+      hideProgressBar
+      position="top-left"
+      theme="dark"
+      autoClose={7000}
+    />
+  );
 };
 
 export default CharacterComment;

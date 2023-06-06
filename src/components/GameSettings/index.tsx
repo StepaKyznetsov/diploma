@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import css from "./GameSettings.module.scss";
 import axios from "axios";
-import { BiBookOpen, BiTimer } from "react-icons/bi";
+import { BiBookOpen } from "react-icons/bi";
 import { MdCastForEducation } from "react-icons/md";
 import BackArrow from "../../ui/BackArrow";
 import SettingsContainer from "../../ui/SettingsContainer";
@@ -63,12 +63,14 @@ const GameSettings: React.FC = () => {
             selector={gameMode}
             setting="classic"
           />
+          {/*
           <SettingsItem
             text="Блиц режим"
             icon={<BiTimer />}
             selector={gameMode}
             setting="blitz"
           />
+          */}
           <SettingsItem
             text="Вариант учителя"
             icon={<MdCastForEducation />}
@@ -77,8 +79,10 @@ const GameSettings: React.FC = () => {
           />
         </div>
 
-        {/* Выбор количества заданий */}
+        {/* 
+        Выбор количества заданий 
 
+        Выбор времени игры
         {gameMode === "blitz" && (
           <div className={css.settingsBlock}>
             <SettingsItem text="1 минута" selector={time} setting={60} />
@@ -86,6 +90,7 @@ const GameSettings: React.FC = () => {
             <SettingsItem text="3 минуты" selector={time} setting={180} />
           </div>
         )}
+        */}
         {gameMode === "infinity" && (
           <div className={css.searchGroup}>
             <Input

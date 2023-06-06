@@ -8,7 +8,7 @@ import CharacterLine from "../../components/CharacterLine";
 import { findSlide } from "../../helpers";
 import { useNavigate } from "react-router-dom";
 import { GAME_OVER } from "../../constants";
-import { DetailedStatistics, Result } from "../../redux/types/statistics";
+import { DetailedStatistics } from "../../redux/types/statistics";
 import ProgressBar from "../../components/ProgressBar";
 import PointsCounter from "../../components/PointsCounter";
 
@@ -36,7 +36,16 @@ const PlayGame: React.FC = () => {
   } = useTasks();
   const seconds = useTimer();
   const group = groups.filter((e) => e.title === currentGroup)[0];
-  const slideInfo = findSlide([0, 3, 6, 9, 13], currentQuestionIndex);
+
+  const slideInfo = findSlide(
+    [
+      0,
+      Math.round(questions.length / 4),
+      Math.round(questions.length / 2),
+      Math.round(questions.length / 1.3),
+    ],
+    currentQuestionIndex
+  );
 
   const checkAndGoNext = () => {
     setDetails([
@@ -60,8 +69,12 @@ const PlayGame: React.FC = () => {
       setEndPoints(endPoints + 100);
     }
     resetAnswer();
-
-    if (isEnd) return gameOver();
+    if (
+      trueCorrectlyAnswers >= pointsToWin ||
+      trueWrongAnswers >= pointsToLose ||
+      isEnd
+    )
+      return gameOver();
     setCurrentQuestionIndex((prev) => prev + 1);
   };
 
@@ -69,6 +82,7 @@ const PlayGame: React.FC = () => {
     currentAnswer !== currentQuestion.answer
       ? correctlyAnswers
       : correctlyAnswers + 1;
+
   const trueWrongAnswers =
     currentAnswer !== currentQuestion.answer ? wrongAnswers + 1 : wrongAnswers;
 
@@ -88,13 +102,6 @@ const PlayGame: React.FC = () => {
   const pointsToWin =
     (gameMode === "infinity" && group.pointsToWin) || questions.length;
 
-  const result: Result =
-    correctlyAnswers >= pointsToWin
-      ? "victory"
-      : wrongAnswers >= pointsToLose
-      ? "loss"
-      : "draw";
-
   const gameOver = () => {
     addPersonalStatistics(name, surname, type, {
       type: gameMode,
@@ -103,7 +110,12 @@ const PlayGame: React.FC = () => {
       wrongAnswers: trueWrongAnswers,
       details: trueDetails,
       averageScores: trueEndPoints.toFixed(2),
-      result,
+      result:
+        trueCorrectlyAnswers >= pointsToWin
+          ? "victory"
+          : trueWrongAnswers >= pointsToLose
+          ? "loss"
+          : "draw",
     });
 
     const currentPerson = persons.find(
@@ -124,10 +136,11 @@ const PlayGame: React.FC = () => {
     <main>
       <BackArrow />
       <CharacterComment visible={visibleComment} />
-      {gameMode === "blitz" && slideInfo && (
+      {slideInfo && (
         <CharacterLine
           imgSrc={slideInfo.slideImage}
           text={slideInfo.slideText}
+          subtext={slideInfo.slideSubtext}
         />
       )}
       <SplashScreen text="Поиграем!" />

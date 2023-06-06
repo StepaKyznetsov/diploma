@@ -4,6 +4,7 @@ import { useTasks } from "./useTasks";
 import { useTypewriter } from "./useTypewriter";
 import { useTimer } from "./useTimer";
 import { useDebounce } from "./useDebounce";
+import { useEffectOnce } from "./useEffectOnce";
 import { useNumbersCounter } from "./useNumbersCounter";
 
 export {
@@ -13,5 +14,6 @@ export {
   useTypewriter,
   useTimer,
   useDebounce,
-  useNumbersCounter
+  useNumbersCounter,
+  useEffectOnce
 };

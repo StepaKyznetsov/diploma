@@ -3,6 +3,8 @@ import css from "./CurrentStatistics.module.scss";
 import MenuItem from "../../ui/Controls/MenuItem";
 import { MAIN } from "../../constants";
 import { useTypedSelector } from "../../hooks";
+import CharacterLine from "../CharacterLine";
+import { resultText, resultImages } from "../../constants";
 
 const CurrentStatistics: React.FC = () => {
   const { persons } = useTypedSelector((state) => state.statistics);
@@ -22,8 +24,15 @@ const CurrentStatistics: React.FC = () => {
       ? "Проигрыш"
       : "Неплохая попытка");
 
-  return (
+  const resultIndex =
+    result === "Победа" ? 0 : result === "Неплохая попытка" ? 1 : 2;
+
+    return (
     <div className={css.container}>
+      <CharacterLine
+        text={resultText[resultIndex]}
+        imgSrc={resultImages[resultIndex]}
+      />
       <div className={css.inner}>
         <h2>Статистика за текущую попытку:</h2>
         {currentStatistics && (
