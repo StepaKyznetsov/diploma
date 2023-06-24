@@ -5,7 +5,7 @@ import {
 } from "../types/settings.d";
 
 const initialState: SettingsState = {
-  gameMode: "classic",
+  gameMode: "infinity",
   questionsAmount: null,
   time: null,
 };

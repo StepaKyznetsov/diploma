@@ -48,8 +48,8 @@ const PopupEdit: React.FC<IPopupEdit> = ({
             <ol>
               {questions.map((e, index) => (
                 <li key={index}>
-                  <span>Текст задания: {e.text}</span>
-                  <span>Верный ответ: {e.answer}</span>
+                  <p>{index + 1}. {e.text}</p>
+                  <div>
                   <button
                     onClick={() => {
                       setCurrentQuestion(e.text);
@@ -65,6 +65,7 @@ const PopupEdit: React.FC<IPopupEdit> = ({
                   >
                     Удалить
                   </button>
+                  </div>
                 </li>
               ))}
             </ol>

@@ -10,6 +10,7 @@ interface IPopupCreate {
 const PopupCreate: React.FC<IPopupCreate> = ({ setVisible }) => {
   const [groupName, setGroupName] = useState<string>("");
   const { name, surname, type } = useTypedSelector((state) => state.user);
+  const { groups } = useTypedSelector((state) => state.groups);
   const { addGroup } = useActions();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +38,8 @@ const PopupCreate: React.FC<IPopupCreate> = ({ setVisible }) => {
               personalStatistics: [],
               groups: [],
             },
-            groupName
+            groupName,
+            groups
           );
           setVisible(false);
         }}

@@ -1,25 +1,12 @@
-[
-  {
-    "name": "5В класс",
-    "tasks": [
-      {
-        "text": "1 + 1 = ?",
-        "answer": "2",
-        "answerOptions": ["1", "2", "3", "4"],
-        "type": "single"
-      },
-      {
-        "text": "2 + 2 = ?",
-        "answer": "4",
-        "answerOptions": ["4", "7", "8", "2"],
-        "type": "multiple"
-      },
-      {
-        "text": "3 + 3 = ?",
-        "answer": "6",
-        "answerOptions": [],
-        "type": "input"
-      }
-    ]
-  }
-]
+{
+  "author": {
+    "name": "ewq",
+    "surname": "ewq",
+    "userType": "teacher",
+    "personalStatistics": [],
+    "groups": []
+  },
+  "title": "qwe",
+  "questions": [],
+  "members": []
+}

@@ -1,13 +1,21 @@
 .container {
   position: absolute;
   top: 1rem;
-  right: 1.5rem;
-  font-size: 25px;
+  right: 6rem;
+  font-size: 40px;
   display: flex;
   flex-direction: column;
+  white-space: nowrap;
+  @media (max-width: 1700px) {
+    font-size: 25px;
+    right: 1.5rem;
+  }
   .block {
     width: 140px;
     display: flex;
     justify-content: space-between;
+    span {
+      margin-right: 1rem;
+    }
   }
 }

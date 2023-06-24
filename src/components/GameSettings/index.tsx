@@ -56,7 +56,9 @@ const GameSettings: React.FC = () => {
         <div className={css.title}>
           <h2>Настройки режима игры</h2>
         </div>
+
         <div className={css.settingsBlock}>
+          
           <SettingsItem
             text="Приключение"
             icon={<BiBookOpen />}

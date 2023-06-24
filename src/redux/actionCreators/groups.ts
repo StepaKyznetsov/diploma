@@ -1,10 +1,11 @@
 import { Question } from "../types/questions";
 import { Person } from "../types/statistics";
-import { GroupsAction, GroupsActionTypes } from "./../types/groups.d";
+import { Group, GroupsAction, GroupsActionTypes } from "./../types/groups.d";
 import { Dispatch } from "redux";
 
-export const addGroup = (author: Person, title: string) => {
+export const addGroup = (author: Person, title: string, groups: Group[]) => {
   return (dispatch: Dispatch<GroupsAction>) => {
+    if (groups.filter((e) => e.title === title).length) return;
     dispatch({
       type: GroupsActionTypes.ADD_GROUP,
       payload: {
