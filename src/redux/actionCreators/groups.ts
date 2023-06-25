@@ -18,6 +18,27 @@ export const addGroup = (author: Person, title: string, groups: Group[]) => {
   };
 };
 
+export const addGroupForDiploma = (title: string, questions: Question[] ,groups: Group[]) => {
+  return (dispatch: Dispatch<GroupsAction>) => {
+    if (groups.filter((e) => e.title === title).length) return;
+    dispatch({
+      type: GroupsActionTypes.ADD_GROUP,
+      payload: {
+        author: {
+          name: "Степан",
+          surname: "Кузнецов",
+          userType: "teacher",
+          personalStatistics: [],
+          groups: [],
+        },
+        title,
+        questions,
+        members: [],
+      },
+    });
+  };
+};
+
 export const setCurrentGroup = (groupTitle: string) => {
   return (dispatch: Dispatch<GroupsAction>) => {
     dispatch({

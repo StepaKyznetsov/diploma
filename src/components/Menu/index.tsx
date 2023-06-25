@@ -29,7 +29,7 @@ const Menu: React.FC = () => {
             {
               text: "Играть",
               icon: <BsFillPlayFill />,
-              description: "Опробуйте свои знания в одном из режимов игры!",
+              description: "Опробуйте свои знания в игре!",
               href: GAMEMODE,
               redirectToLogin: true,
             },
@@ -54,7 +54,7 @@ const Menu: React.FC = () => {
             {
               text: "Моя статистика",
               icon: <FaTasks />,
-              description: "Статистика решенных заданий по всем режимам",
+              description: "Статистика решенных заданий",
               href: MY_STATISTICS,
             },
             {

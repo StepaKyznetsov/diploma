@@ -58,14 +58,14 @@ const GameSettings: React.FC = () => {
         </div>
 
         <div className={css.settingsBlock}>
-          
+          {/*
           <SettingsItem
             text="Приключение"
             icon={<BiBookOpen />}
             selector={gameMode}
             setting="classic"
           />
-          {/*
+          
           <SettingsItem
             text="Блиц режим"
             icon={<BiTimer />}

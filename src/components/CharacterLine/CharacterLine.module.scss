@@ -20,7 +20,7 @@
       p {
         text-align: justify;
         margin: 0;
-        font-size: 35px;
+        font-size: 38px;
         color: black;
         padding-left: 1rem;
         @media (max-width: 1400px) {
@@ -28,7 +28,7 @@
         }
       }
       .subtext {
-        color: green;
+        color: blue;
         animation: visibleSubtext 12s ease-in-out;
       }
     }

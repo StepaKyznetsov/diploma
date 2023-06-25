@@ -1,4 +1,3 @@
-import { getRandomElements } from "../../helpers";
 import {
   Question,
   QuestionsAction,
@@ -6,12 +5,11 @@ import {
 } from "./../types/questions.d";
 import { Dispatch } from "redux";
 
-export const setCurrentQuestions = (arr: Question[], num: number | null) => {
-  const currentQuestions = getRandomElements(arr, num);
+export const setCurrentQuestions = (questions: Question[], num: number | null) => {
   return (dispatch: Dispatch<QuestionsAction>) => {
     dispatch({
       type: QuestionsActionTypes.SET_QUESTIONS,
-      payload: currentQuestions,
+      payload: questions,
     });
   };
 };

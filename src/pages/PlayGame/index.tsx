@@ -109,7 +109,7 @@ const PlayGame: React.FC = () => {
       correctlyAnswers: trueCorrectlyAnswers,
       wrongAnswers: trueWrongAnswers,
       details: trueDetails,
-      averageScores: trueEndPoints.toFixed(2),
+      averageScores: (trueEndPoints / seconds / questions.length * 300).toFixed(2),
       result:
         trueCorrectlyAnswers >= pointsToWin
           ? "victory"

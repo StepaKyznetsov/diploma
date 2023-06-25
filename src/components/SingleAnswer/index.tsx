@@ -9,7 +9,7 @@ const SingleAnswer: React.FC<Question> = ({ text, answerOptions }) => {
       <div className={css.inner}>
         <div className={css.leftPanel}>
           <div className={css.board}>
-            <span>{text}</span>
+            <p>{text}</p>
           </div>
           <div className={css.asks}>
             <AnswerItem text={answerOptions[0]} />

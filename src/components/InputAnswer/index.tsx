@@ -17,9 +17,8 @@ const InputAnswer: React.FC<Question> = ({ text }) => {
     <div className={css.container}>
       <div className={css.inner}>
         <div className={css.leftPanel}>
-          <div className={css.description}>Введите ответ в поле ввода</div>
           <div className={css.board}>
-            <span>{text}</span>
+            <p>{text}</p>
           </div>
           <div className={css.asks}>
             <Input

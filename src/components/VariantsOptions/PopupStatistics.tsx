@@ -12,7 +12,7 @@ const PopupStatistics: React.FC = () => {
         (el) => el.groupName === currentGroup
       ).length
   );
-  console.log(myMembers);
+
   return (
     <div className={css.groupStatistics}>
       <h3>Вариант: {currentGroup}</h3>

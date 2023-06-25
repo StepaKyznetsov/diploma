@@ -7,6 +7,7 @@
   h2 {
     margin: 0;
     cursor: pointer;
+    font-size: 40px;
     transition: color 0.4s;
     &:hover {
       color: rgb(68, 236, 68);
@@ -21,10 +22,16 @@
     width: 40%;
     h3 {
       margin: 0 auto;
+      font-size: 35px;
     }
     .variant {
       display: flex;
       justify-content: space-between;
+      font-size: 30px;
+      button {
+        font-size: 20px;
+        cursor: pointer;
+      }
     }
     .close {
       cursor: pointer;
@@ -51,7 +58,8 @@
           font-size: 25px;
           p {
             margin: 0;
-            width: 70%;
+            width: 100%;
+            text-align: justify;
           }
           div {
             border-bottom: 1px solid black;
@@ -80,7 +88,10 @@
     flex-direction: column;
     align-items: center;
     h3 {
-      font-size: 30px;
+      font-size: 35px;
+    }
+    button {
+      font-size: 25px;
     }
   }
 }
