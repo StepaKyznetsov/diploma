@@ -84,7 +84,7 @@ const AddTask: React.FC<IAddTask> = ({ setAddTask }) => {
         />
       </div>
       <div className={css.taskBlock}>
-        <span>Варианты ответов(опционально): </span>
+        <span>Варианты ответов (опционально): </span>
         <Input
           placeholder="Введите варианты ответов через пробел (максимум 4)"
           value={answerOptions}
